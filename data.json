@@ -1,0 +1,17 @@
+{
+  "Admission Cell": [
+    { "id": 1, "name": "Admission Cell", "number": "8141238368" }
+  ],
+  "Diploma Computer": [
+    { "id": 2, "name": "Prof. Akash Siddhpura", "number": "9429794513" }
+  ],
+  "Diploma Civil": [
+    { "id": 3, "name": "Prof. Hitesh Jadav", "number": "8905939980" }
+  ],
+  "Diploma Mechanical": [
+    { "id": 4, "name": "Prof. Hitesh Jadav", "number": "8905939980" }
+  ],
+  "Diploma Electrical": [
+    { "id": 5, "name": "Prof. Pratik Patel", "number": "9712260060" }
+  ]
+}
