@@ -1,19 +1,14 @@
 $(document).ready(function () {
   $("#apiForm").submit(function (event) {
     event.preventDefault();
-    var apiKey = $("#apiKey").val();
+    var apiKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZU51bWJlciI6Iis5MTcwOTY5Nzk5MDAiLCJwaG9uZU51bWJlcklkIjoiMjMxMTgxOTYzNDE0MjQ2IiwiaWF0IjoxNzA4MDYwMDg3fQ.vkXWdDOEW1mCRPdiaNdNshOFkIn0tPM-E_SmuDnMtiw";
     var number = $("#number").val();
     var category = $("#category").val();
-
-    console.log(apiKey);
-    console.log(number);
-    console.log(category);
 
     // Fetch JSON data
     $.getJSON("data.json", function (data) {
       var items = data[category];
-      // parsedData = JSON.parse(data);
-      console.log(items[0]);
+      
       if (items) {
         let contactNumber = items[0].number;
         let contactPerson = items[0].name;
