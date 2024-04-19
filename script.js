@@ -60,6 +60,12 @@ $(document).ready(function () {
           }),
           success: function (response) {
             console.log("API call successful:", response);
+            if (!getCookie("APICalled")) {
+              console.log("APICalled Cookie");
+              setCookie("APICalled", 1, 30);
+            } else {
+              updateCookieData();
+            }
             $("#result").html(
               `<div class="alert alert-success"><strong>Success!</strong> Message Sent Successfully.</div>`
             );
@@ -126,6 +132,12 @@ $(document).ready(function () {
           }),
           success: function (response) {
             console.log("API call successful:", response);
+            if (!getCookie("APICalled")) {
+              console.log("APICalled Cookie");
+              setCookie("APICalled", 1, 30);
+            } else {
+              updateCookieData();
+            }
             $("#result").html(
               `<div class="alert alert-success"><strong>Success!</strong> Message Sent Successfully.</div>`
             );
@@ -149,3 +161,36 @@ $(document).ready(function () {
     });
   });
 });
+
+function setCookie(name, value, days) {
+  var expires = "";
+  if (days) {
+    var date = new Date();
+    date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+    expires = "; expires=" + date.toUTCString();
+  }
+  document.cookie = name + "=" + (value || "") + expires + "; path=/";
+}
+
+function updateCookieData() {
+  var existingData = getCookie("APICalled");
+  if (existingData) {
+    // Modify existing data
+    var newData = Number(existingData) + 1;
+    // Update the cookie with the new data
+    setCookie("APICalled", newData, 300);
+  }
+}
+
+function getCookie(name) {
+  var ca = document.cookie.split(";");
+
+  for (var i = 0; i < ca.length; i++) {
+    var c = ca[i];
+
+    if (c.split("=")[0] == " " + name) {
+      return c.split("=")[1];
+    }
+  }
+  return null;
+}

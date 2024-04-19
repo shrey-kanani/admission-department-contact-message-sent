@@ -3,19 +3,19 @@
     {
       "id": 1,
       "email": "shrey.kanani@darshan.ac.in",
-      "password": "spk@123",
+      "password": "asdf1234",
       "name": "Shrey Kanani"
     },
     {
       "id": 2,
       "email": "amit.vagadiya@darshan.ac.in",
-      "password": "abv@123",
+      "password": "asdf4321",
       "name": "Amit Vagadiya"
     },
     {
       "id": 3,
       "email": "hardik.lakhani@darshan.ac.in",
-      "password": "hkl@123",
+      "password": "1234",
       "name": "Hardik Lakhani"
     }
   ]
