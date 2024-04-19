@@ -1,17 +1,77 @@
 {
-  "Admission Cell": [
-    { "id": 1, "name": "Admission Cell", "number": "8141238368" }
-  ],
+  "Admission Cell": [{ "id": 1, "name": "Mihir Tank", "number": "8141238368" }],
   "Diploma Computer": [
-    { "id": 2, "name": "Prof. Akash Siddhpura", "number": "9429794513" }
+    { "id": 2, "name": "Prof. Akash Siddhpura", "number": "9429794513" },
+    { "id": 3, "name": "Prof. Vishal Makwana", "number": "8671010867" }
   ],
   "Diploma Civil": [
-    { "id": 3, "name": "Prof. Hitesh Jadav", "number": "8905939980" }
+    { "id": 4, "name": "Prof. Hitesh Jadav", "number": "8905939980" },
+    { "id": 5, "name": "Prof. Harnish Pandya", "number": "9033151523" }
   ],
   "Diploma Mechanical": [
-    { "id": 4, "name": "Prof. Hitesh Jadav", "number": "8905939980" }
+    { "id": 6, "name": "Prof. Dharmesh Tanti", "number": "9924452451" },
+    { "id": 7, "name": "Prof. Paresh Bhuva", "number": "8849592724" }
   ],
   "Diploma Electrical": [
-    { "id": 5, "name": "Prof. Pratik Patel", "number": "9712260060" }
+    { "id": 8, "name": "Prof. Pratik Patel", "number": "9712260060" }
+  ],
+  "BCA": [
+    { "id": 9, "name": "Prof. Kishan Jogi", "number": "9033412096" },
+    { "id": 10, "name": "Prof. Chirag Sakhrani", "number": "8401191184" }
+  ],
+  "B.Sc. (IT)": [
+    { "id": 11, "name": "Prof. Hemang Chath", "number": "8200834776" },
+    { "id": 12, "name": "Prof. Vaseem Ghada", "number": "9879531513" }
+  ],
+  "B.Sc. (Honors) Computer Science": [
+    { "id": 13, "name": "Prof. Vishal Kansagara", "number": "8200601076" },
+    { "id": 14, "name": "Prof.  Krunal Vyas", "number": "9601901005" }
+  ],
+  "B. Com. (Honors)": [
+    { "id": 15, "name": "Prof. Dharmik Vegad", "number": "9925877291" }
+  ],
+  "B. Com.": [
+    { "id": 16, "name": "Prof. Dhaval Radadiya", "number": "9979608411" }
+  ],
+  "BBA (Honors) Digital Marketing": [
+    { "id": 17, "name": "Prof. Dipam Raval", "number": "9945801632" }
+  ],
+  "BBA": [
+    { "id": 18, "name": "Prof. Dhaval Vyas", "number": "9638595263" },
+    { "id": 19, "name": "Prof. Smit Vachhani", "number": "7359786060" }
+  ],
+  "B. Sc. Microbiology ": [
+    { "id": 20, "name": "Prof. Sagar Joshi ", "number": "7096979983" }
+  ],
+  "B.Tech. Computer Science & Engineering": [
+    { "id": 21, "name": "Prof. Raj Gondaliya", "number": "9723232741" },
+    { "id": 22, "name": "Prof. Dharmik Vasiyani ", "number": "9924664064" }
+  ],
+  "B.Tech. Civil Engineering": [
+    { "id": 23, "name": "Prof. Arjun Chavda ", "number": "8200802523" },
+    { "id": 24, "name": "Prof. Deepraj Patadia", "number": "7990475865" }
+  ],
+  "B.Tech. Mechanical Engineering": [
+    { "id": 25, "name": "Prof. Ankur Tank ", "number": "9712804466" },
+    { "id": 26, "name": "Prof. Sagar Kanjiya", "number": "9408040240" }
+  ],
+  "MBA": [
+    { "id": 27, "name": "Prof. Navjyot Raval", "number": "9909515615" },
+    { "id": 28, "name": "Prof. Bhavin Joshi", "number": "9106108903" }
+  ],
+  "MCA": [
+    { "id": 29, "name": "Prof. Firoz Sherasiya ", "number": "9879879861" }
+  ],
+  "M. A. Yoga": [
+    { "id": 30, "name": "Prof. Gaurang Vyas", "number": "9426385864" }
+  ],
+  "M.Tech. Computer Engineering": [
+    { "id": 31, "name": "Prof. Maulik Trivedi", "number": "9998265805" }
+  ],
+  "M.Tech. Civil Engineering": [
+    { "id": 32, "name": "Prof. Dipak Jivani ", "number": "9409530079" }
+  ],
+  "M.Tech. Mechanical Engineering": [
+    { "id": 33, "name": "Prof. Mukesh Vekariya", "number": "9998986259" }
   ]
 }
