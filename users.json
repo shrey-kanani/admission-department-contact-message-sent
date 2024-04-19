@@ -1,0 +1,22 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "shrey.kanani@darshan.ac.in",
+      "password": "asdf1234",
+      "name": "Shrey Kanani"
+    },
+    {
+      "id": 2,
+      "email": "amit.vagadiya@darshan.ac.in",
+      "password": "asdf4321",
+      "name": "Amit Vagadiya"
+    },
+    {
+      "id": 3,
+      "email": "hardik.lakhani@darshan.ac.in",
+      "password": "1234",
+      "name": "Hardik Lakhani"
+    }
+  ]
+}

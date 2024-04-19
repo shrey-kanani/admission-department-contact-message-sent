@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API Call Demo</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-9">
+        <h2>Whatsapp Send Contact Details</h2>
+      </div>
+      <div class="col-3 text-right">
+        <button id="logoutBtn" class="btn btn-danger">Logout</button>
+      </div>
+    </div>
+    <form id="apiForm">
+      <div class="form-group">
+        <label for="apiKey">API Security Key:</label>
+        <input type="textarea" class="form-control" id="apiKey" required>
+      </div>
+      <div class="form-group">
+        <label for="number">10 Digit Number:</label>
+        <input type="text" class="form-control" id="number" pattern="[0-9]{10}" required>
+      </div>
+      <div class="form-group">
+        <label for="category">Category:</label>
+        <select class="form-control" id="category" required>
+          <option value="">Select a category</option>
+          <option value="Admission Cell">Admission Cell</option>
+          <option value="Diploma Computer">Diploma Computer</option>
+          <option value="Diploma Civil">Diploma Civil</option>
+          <option value="Diploma Mechanical">Diploma Mechanical</option>
+          <option value="Diploma Electrical">Diploma Electrical</option>
+          <!-- Add more options as needed -->
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <div id="result" class="mt-3"></div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="script.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('#logoutBtn').click(function () {
+        // Redirect to logout page or perform logout action
+        // For example, redirect to logout.html
+        window.location.href = 'index.html';
+      });
+    });
+  </script>
+</body>
+
+</html>
