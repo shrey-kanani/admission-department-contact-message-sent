@@ -45,7 +45,7 @@ $(document).ready(function () {
               type: "template",
               source: "external",
               template: {
-                name: "admission_officer_contact_details_single_send",
+                name: "admission_officer_contact_details_send",
                 language: {
                   code: "en",
                 },
@@ -72,11 +72,11 @@ $(document).ready(function () {
             }),
             success: function (response) {
               console.log("API call successful:", response);
+              console.log(getCookie("APICalled"));
               if (!getCookie("APICalled")) {
                 console.log("APICalled Cookie");
                 setCookie("APICalled", 1, 30);
               } else {
-                console.log("updating");
                 updateCookieData();
               }
               $("#result").html(
@@ -145,11 +145,12 @@ $(document).ready(function () {
             }),
             success: function (response) {
               console.log("API call successful:", response);
+              console.log(getCookie("APICalled"));
+
               if (!getCookie("APICalled")) {
                 console.log("APICalled Cookie");
                 setCookie("APICalled", 1, 30);
               } else {
-                console.log("updating multiple");
                 updateCookieData();
               }
               $("#result").html(
@@ -189,7 +190,6 @@ function setCookie(name, value, days) {
 
 function updateCookieData() {
   var existingData = getCookie("APICalled");
-  console.log(existingData);
   if (existingData) {
     // Modify existing data
     var newData = Number(existingData) + 1;
@@ -203,7 +203,10 @@ function getCookie(name) {
 
   for (var i = 0; i < ca.length; i++) {
     var c = ca[i];
-
+    // console.log("================================");
+    // console.log(c);
+    // console.log(c.split("=")[0] == " " + name);
+    // console.log("================================");
     if (c.split("=")[0] == " " + name) {
       return c.split("=")[1];
     }
