@@ -45,7 +45,7 @@ $(document).ready(function () {
               type: "template",
               source: "external",
               template: {
-                name: "admission_officer_contact_details_send",
+                name: "admission_officer_contact_details_single_send",
                 language: {
                   code: "en",
                 },
