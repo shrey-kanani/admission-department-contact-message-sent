@@ -65,17 +65,18 @@
               var data = JSON.parse(xhr.responseText);
               var validUser = false;
               let username;
+              console.dir(formData)
               data.users.forEach(function (user) {
+                console.dir(user);
                 if (user.email === formData.email && user.password === formData.password) {
                   validUser = true;
-                  username = user.name
+                  username = user.name;
                 }
               });
+              console.log(validUser)
               if (validUser) {
                 // Set cookie for the user's name
                 setCookie("user", username, 1);
-
-
                 window.location.href = 'home.html';
               } else {
                 document.getElementById('loginForm').insertAdjacentHTML('afterbegin', '<div class="alert alert-danger" role="alert">Invalid email or password!</div>');

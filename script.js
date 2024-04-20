@@ -13,6 +13,8 @@ $(document).ready(function () {
     // Fetch JSON data
     $.getJSON("data.json", function (data) {
       var items = data[category];
+      // parsedData = JSON.parse(data);
+      console.log(items.length);
       if (items.length == 1) {
         let contactNumber = items[0].number;
         let contactPerson = items[0].name;
@@ -182,7 +184,6 @@ function updateCookieData() {
 
 function getCookie(name) {
   var ca = document.cookie.split(";");
-  console.log(ca);
 
   for (var i = 0; i < ca.length; i++) {
     var c = ca[i];
@@ -193,3 +194,7 @@ function getCookie(name) {
   }
   return null;
 }
+
+var delete_cookie = function (name) {
+  document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:01 GMT;";
+};
