@@ -76,6 +76,7 @@ $(document).ready(function () {
                 console.log("APICalled Cookie");
                 setCookie("APICalled", 1, 30);
               } else {
+                console.log("updating");
                 updateCookieData();
               }
               $("#result").html(
@@ -148,6 +149,7 @@ $(document).ready(function () {
                 console.log("APICalled Cookie");
                 setCookie("APICalled", 1, 30);
               } else {
+                console.log("updating multiple");
                 updateCookieData();
               }
               $("#result").html(
@@ -187,6 +189,7 @@ function setCookie(name, value, days) {
 
 function updateCookieData() {
   var existingData = getCookie("APICalled");
+  console.log(existingData);
   if (existingData) {
     // Modify existing data
     var newData = Number(existingData) + 1;
