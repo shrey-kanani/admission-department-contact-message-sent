@@ -207,7 +207,7 @@ function getCookie(name) {
     // console.log(c);
     // console.log(c.split("=")[0] == " " + name);
     // console.log("================================");
-    if (c.split("=")[0] == " " + name) {
+    if (c.split("=")[0].trim() ==  name) {
       return c.split("=")[1];
     }
   }
