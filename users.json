@@ -17,6 +17,18 @@
       "email": "hardik.lakhani@darshan.ac.in",
       "password": "hkl@123",
       "name": "Hardik Lakhani"
+    },
+    {
+      "id": 4,
+      "email": "hitesh.dhamsaniya@darshan.ac.in",
+      "password": "hbd@123",
+      "name": "Hitesh Dhamsaniya"
+    },
+    {
+      "id": 5,
+      "email": "alpesh.vaghela@darshan.ac.in",
+      "password": "adv@123",
+      "name": "Alpesh Vaghela"
     }
   ]
 }
