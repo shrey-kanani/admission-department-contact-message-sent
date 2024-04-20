@@ -76,5 +76,11 @@
   ],
   "Admission Transfer": [
     { "id": 33, "name": "Prof. Hardik Acharya", "number": "9727630090" }
+  ],
+  "Hostel": [
+    { "id": 34, "name": "Mr. Darshan Sheth", "number": "7096979911" }
+  ],
+  "Transport": [
+    { "id": 35, "name": "Mr. Chirag Bumtariya", "number": "9512770018" }
   ]
 }
