@@ -45,7 +45,7 @@ $(document).ready(function () {
               type: "template",
               source: "external",
               template: {
-                name: "admission_officer_contact_details_send",
+                name: "admission_officer_contact_details_single_send",
                 language: {
                   code: "en",
                 },
@@ -82,7 +82,7 @@ $(document).ready(function () {
               $("#result").html(
                 `<div class="alert alert-success"><strong>Success!</strong> Message Sent Successfully.</div>`
               );
-              $("#apiForm")[0].reset();
+              document.getElementById("apiForm").reset();
               // Handle successful API response here
             },
             error: function (xhr, status, error) {
