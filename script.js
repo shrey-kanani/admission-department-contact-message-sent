@@ -156,6 +156,7 @@ $(document).ready(function () {
               $("#result").html(
                 `<div class="alert alert-success"><strong>Success!</strong> Message Sent Successfully.</div>`
               );
+              document.getElementById("apiForm").reset();
               // $("#apiForm")[0].reset();
               // Handle successful API response here
             },
@@ -207,7 +208,7 @@ function getCookie(name) {
     // console.log(c);
     // console.log(c.split("=")[0] == " " + name);
     // console.log("================================");
-    if (c.split("=")[0].trim() ==  name) {
+    if (c.split("=")[0].trim() == name) {
       return c.split("=")[1];
     }
   }
