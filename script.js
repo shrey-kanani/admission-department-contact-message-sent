@@ -83,6 +83,7 @@ $(document).ready(function () {
                 `<div class="alert alert-success"><strong>Success!</strong> Message Sent Successfully.</div>`
               );
               document.getElementById("apiForm").reset();
+              setFocusToFirstField();
               // Handle successful API response here
             },
             error: function (xhr, status, error) {
@@ -157,6 +158,7 @@ $(document).ready(function () {
                 `<div class="alert alert-success"><strong>Success!</strong> Message Sent Successfully.</div>`
               );
               document.getElementById("apiForm").reset();
+              setFocusToFirstField();
               // $("#apiForm")[0].reset();
               // Handle successful API response here
             },
@@ -218,3 +220,12 @@ function getCookie(name) {
 var delete_cookie = function (name) {
   document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:01 GMT;";
 };
+
+// Function to set focus to the first field
+function setFocusToFirstField() {
+  var myForm = document.getElementById("apiForm");
+  var firstField = myForm.querySelector("input, select, textarea");
+  if (firstField) {
+    firstField.focus();
+  }
+}
