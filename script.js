@@ -227,5 +227,8 @@ function setFocusToFirstField() {
   var firstField = myForm.querySelector("input, select, textarea");
   if (firstField) {
     firstField.focus();
+    setTimeout(() => {
+      $("#result").html(``);
+    }, 2500);
   }
 }
