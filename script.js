@@ -4,7 +4,6 @@ $(document).ready(function () {
     var apiKey =
       "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZU51bWJlciI6Iis5MTcwOTY5Nzk5MDAiLCJwaG9uZU51bWJlcklkIjoiMjMxMTgxOTYzNDE0MjQ2IiwiaWF0IjoxNzA4MDYwMDg3fQ.vkXWdDOEW1mCRPdiaNdNshOFkIn0tPM-E_SmuDnMtiw";
     var number = $("#number").val();
-    // var category = $("#category").val();
 
     // Array to store selected categories
     var selectedCategories = [];
@@ -13,20 +12,13 @@ $(document).ready(function () {
     $('input[type="checkbox"]:checked').each(function () {
       selectedCategories.push($(this).val()); // Add the value of checked checkbox to the array
     });
-    console.log(selectedCategories);
-
-    console.log(apiKey);
-    console.log(number);
-    // console.log(category);
 
     $(selectedCategories).each(function (i, category) {
       console.log(category);
       // Fetch JSON data
       $.getJSON("data.json", function (data) {
         var items = data[category];
-        console.log(items);
-        // parsedData = JSON.parse(data);
-        // console.log(items.length);
+
         if (items.length == 1) {
           let contactNumber = items[0].number;
           let contactPerson = items[0].name;
@@ -71,10 +63,7 @@ $(document).ready(function () {
               },
             }),
             success: function (response) {
-              console.log("API call successful:", response);
-              console.log(getCookie("APICalled"));
               if (!getCookie("APICalled")) {
-                console.log("APICalled Cookie");
                 setCookie("APICalled", 1, 30);
               } else {
                 updateCookieData();
@@ -84,10 +73,8 @@ $(document).ready(function () {
               );
               document.getElementById("apiForm").reset();
               setFocusToFirstField();
-              // Handle successful API response here
             },
             error: function (xhr, status, error) {
-              console.error("Error making API call:", error);
               $("#result").html(
                 `<div class="alert alert-danger"><strong>Failed!</strong> Some error occured</div>`
               );
@@ -145,11 +132,7 @@ $(document).ready(function () {
               },
             }),
             success: function (response) {
-              console.log("API call successful:", response);
-              console.log(getCookie("APICalled"));
-
               if (!getCookie("APICalled")) {
-                console.log("APICalled Cookie");
                 setCookie("APICalled", 1, 30);
               } else {
                 updateCookieData();
@@ -159,16 +142,11 @@ $(document).ready(function () {
               );
               document.getElementById("apiForm").reset();
               setFocusToFirstField();
-              // $("#apiForm")[0].reset();
-              // Handle successful API response here
             },
             error: function (xhr, status, error) {
-              console.error("Error making API call:", error);
               $("#result").html(
                 `<div class="alert alert-danger"><strong>Failed!</strong> Some error occured</div>`
               );
-
-              // Handle error here
             },
           });
         } else {
@@ -206,10 +184,6 @@ function getCookie(name) {
 
   for (var i = 0; i < ca.length; i++) {
     var c = ca[i];
-    // console.log("================================");
-    // console.log(c);
-    // console.log(c.split("=")[0] == " " + name);
-    // console.log("================================");
     if (c.split("=")[0].trim() == name) {
       return c.split("=")[1];
     }
@@ -227,5 +201,8 @@ function setFocusToFirstField() {
   var firstField = myForm.querySelector("input, select, textarea");
   if (firstField) {
     firstField.focus();
+    setTimeout(() => {
+      $("#result").html(``);
+    }, 2500);
   }
 }
