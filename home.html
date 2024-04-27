@@ -185,13 +185,13 @@
 
     $(document).ready(function () {
 
-      // // Check if the 'user' cookie is present
-      // var userCookie = getCookie('user');
-      // console.log(userCookie);
-      // if (!userCookie) {
-      //   // If 'user' cookie is not present, redirect to indesc.html
-      //   window.location.href = 'index.html';
-      // }
+      // Check if the 'user' cookie is present
+      var userCookie = getCookie('user');
+      console.log(userCookie);
+      if (!userCookie) {
+        // If 'user' cookie is not present, redirect to indesc.html
+        window.location.href = 'index.html';
+      }
 
       $('#logoutBtn').click(function () {
         // Redirect to logout page or perform logout action
