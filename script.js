@@ -102,7 +102,7 @@ $(document).ready(function () {
               type: "template",
               source: "external",
               template: {
-                name: "admission_officer_contact_details_send_multiple",
+                name: "admission_officer_contact_details_send_multiple_2",
                 language: {
                   code: "en",
                 },
@@ -110,6 +110,10 @@ $(document).ready(function () {
                   {
                     type: "body",
                     parameters: [
+                      {
+                        type: "text",
+                        text: course,
+                      },
                       {
                         type: "text",
                         text: contactPerson,
