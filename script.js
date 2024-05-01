@@ -68,6 +68,8 @@ $(document).ready(function () {
               } else {
                 updateCookieData();
               }
+              var messageCount = getCookie("APICalled");
+              $("#messageCount").text("Total messages sent: " + messageCount);
               $("#result").html(
                 `<div class="alert alert-success"><strong>Success!</strong> Message Sent Successfully.</div>`
               );
@@ -141,6 +143,8 @@ $(document).ready(function () {
               } else {
                 updateCookieData();
               }
+              var messageCount = getCookie("APICalled");
+              $("#messageCount").text("Total messages sent: " + messageCount);
               $("#result").html(
                 `<div class="alert alert-success"><strong>Success!</strong> Message Sent Successfully.</div>`
               );

@@ -13,6 +13,7 @@
     <div class="row">
       <div class="col-9">
         <h2>Whatsapp Send Contact Details</h2>
+        <span id="messageCount"></span>
       </div>
       <div class="col-3 text-right">
         <button id="logoutBtn" class="btn btn-danger">Logout</button>
@@ -86,7 +87,7 @@
                 id="category_bsc_microbiology">
               <label class="form-check-label" for="category_bsc_microbiology">B. Sc. Microbiology</label>
             </div>
-            
+
           </div>
           <div class="col-md-6">
             <div class="form-check">
@@ -192,6 +193,9 @@
         // If 'user' cookie is not present, redirect to indesc.html
         window.location.href = 'index.html';
       }
+
+      var messageCount = getCookie('APICalled');
+      $('#messageCount').text("Total messages sent: " + messageCount);
 
       $('#logoutBtn').click(function () {
         // Redirect to logout page or perform logout action
