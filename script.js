@@ -68,6 +68,7 @@ $(document).ready(function () {
               } else {
                 updateCookieData();
               }
+              saveSentMessageRecord(number, course, new Date().toISOString());
               var messageCount = getCookie("APICalled");
               $("#messageCount").text("Total messages sent: " + messageCount);
               $("#result").html(
@@ -143,6 +144,7 @@ $(document).ready(function () {
               } else {
                 updateCookieData();
               }
+              saveSentMessageRecord(number, course, new Date().toISOString());
               var messageCount = getCookie("APICalled");
               $("#messageCount").text("Total messages sent: " + messageCount);
               $("#result").html(
@@ -213,4 +215,19 @@ function setFocusToFirstField() {
       $("#result").html(``);
     }, 2500);
   }
+}
+
+function saveSentMessageRecord(number, category, timestamp) {
+  // Retrieve existing records from localStorage
+  var sentMessages = JSON.parse(localStorage.getItem("sentMessages")) || [];
+
+  // Add new record
+  sentMessages.push({
+    number: number,
+    category: category,
+    timestamp: timestamp,
+  });
+
+  // Save updated records to localStorage
+  localStorage.setItem("sentMessages", JSON.stringify(sentMessages));
 }

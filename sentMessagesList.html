@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sent Messages</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Add custom styles here if needed */
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h2 class="mt-4 mb-4">Sent Messages</h2>
+    <div class="mb-3">
+      <button class="btn btn-primary" id="exportBtn">Export to Excel</button>
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Recipient Number</th>
+          <th>Category</th>
+          <th>Timestamp</th>
+        </tr>
+      </thead>
+      <tbody id="sentMessagesTableBody">
+        <!-- Records will be displayed here -->
+      </tbody>
+    </table>
+    <nav>
+      <ul class="pagination justify-content-center" id="pagination">
+        <!-- Pagination links will be inserted here -->
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- SheetJS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.0/xlsx.full.min.js"></script>
+  <script>
+    // Function to display paginated records from localStorage
+    function displayPaginatedSentMessages(pageNumber, pageSize) {
+      var sentMessages = JSON.parse(localStorage.getItem("sentMessages")) || [];
+      var startIndex = (pageNumber - 1) * pageSize;
+      var endIndex = startIndex + pageSize;
+      var paginatedMessages = sentMessages.slice(startIndex, endIndex);
+
+      var tableBody = document.getElementById("sentMessagesTableBody");
+      tableBody.innerHTML = ""; // Clear existing rows
+
+      paginatedMessages.forEach(function (message) {
+        var row = tableBody.insertRow();
+        var recipientCell = row.insertCell(0);
+        var categoryCell = row.insertCell(1);
+        var timestampCell = row.insertCell(2);
+
+        recipientCell.textContent = message.number;
+        categoryCell.textContent = message.category;
+        timestampCell.textContent = new Date(message.timestamp).toLocaleString(); // Convert timestamp to local date and time format
+      });
+    }
+
+    // Function to generate pagination links
+    function generatePaginationLinks(totalPages) {
+      var pagination = document.getElementById("pagination");
+      pagination.innerHTML = "";
+
+      for (var i = 1; i <= totalPages; i++) {
+        var li = document.createElement("li");
+        li.classList.add("page-item");
+        var link = document.createElement("a");
+        link.classList.add("page-link");
+        link.textContent = i;
+        link.href = "#";
+        link.addEventListener("click", function (event) {
+          event.preventDefault();
+          var pageNumber = parseInt(event.target.textContent);
+          displayPaginatedSentMessages(pageNumber, 10); // Assuming 10 records per page
+        });
+        li.appendChild(link);
+        pagination.appendChild(li);
+      }
+    }
+
+    // Call the function to initially display the first page
+    displayPaginatedSentMessages(1, 10); // Assuming 10 records per page
+
+    // Call the function to generate pagination links
+    generatePaginationLinks(1); // Initially 1 page
+
+    // Sample code to calculate total pages
+    var sentMessages = JSON.parse(localStorage.getItem("sentMessages")) || [];
+    var totalPages = Math.ceil(sentMessages.length / 10); // Assuming 10 records per page
+
+    // Update pagination links based on total pages
+    generatePaginationLinks(totalPages);
+
+    // Export to Excel
+    document.getElementById("exportBtn").addEventListener("click", function () {
+      var sentMessages = JSON.parse(localStorage.getItem("sentMessages")) || [];
+      var data = sentMessages.map(function (message) {
+        return [message.number, message.category, new Date(message.timestamp).toLocaleString()];
+      });
+
+      var ws = XLSX.utils.aoa_to_sheet([["Recipient Number", "Category", "Timestamp"], ...data]);
+      var wb = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, ws, "Sent Messages");
+      XLSX.writeFile(wb, "sent_messages.xlsx");
+    });
+  </script>
+</body>
+
+</html>
