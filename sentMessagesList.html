@@ -9,14 +9,18 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
     /* Add custom styles here if needed */
+    #export-button {
+      margin-left: 0.5rem;
+    }
   </style>
 </head>
 
 <body>
   <div class="container">
-    <h2 class="mt-4 mb-4">Sent Messages</h2>
-    <div class="mb-3">
-      <button class="btn btn-primary" id="exportBtn">Export to Excel</button>
+    <h2 class="mt-4 mb-4">Messages List</h2>
+    <div class="mb-3 d-flex justify-content-end g-2">
+      <a href="home.html" class="btn btn-secondary">Home</a>
+      <button class="btn btn-success" id="export-button">Export to Excel</button>
     </div>
     <table class="table">
       <thead>
@@ -52,16 +56,22 @@
       var tableBody = document.getElementById("sentMessagesTableBody");
       tableBody.innerHTML = ""; // Clear existing rows
 
-      paginatedMessages.forEach(function (message) {
-        var row = tableBody.insertRow();
-        var recipientCell = row.insertCell(0);
-        var categoryCell = row.insertCell(1);
-        var timestampCell = row.insertCell(2);
+      if (paginatedMessages.length == 0) {
+        tableBody.innerHTML = "<tr><td colspan='3' class='text-center'>No records found.</td></tr>";
+        document.getElementById("exportBtn").disabled = true;
+      } else {
+        paginatedMessages.forEach(function (message) {
+          var row = tableBody.insertRow();
+          var recipientCell = row.insertCell(0);
+          var categoryCell = row.insertCell(1);
+          var timestampCell = row.insertCell(2);
 
-        recipientCell.textContent = message.number;
-        categoryCell.textContent = message.category;
-        timestampCell.textContent = new Date(message.timestamp).toLocaleString(); // Convert timestamp to local date and time format
-      });
+          recipientCell.textContent = message.number;
+          categoryCell.textContent = message.category;
+          timestampCell.textContent = new Date(message.timestamp).toLocaleString(); // Convert timestamp to local date and time format
+        });
+        document.getElementById("exportBtn").disabled = false;
+      }
     }
 
     // Function to generate pagination links
