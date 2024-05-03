@@ -51,7 +51,7 @@
       var sentMessages = JSON.parse(localStorage.getItem("sentMessages")) || [];
       var startIndex = (pageNumber - 1) * pageSize;
       var endIndex = startIndex + pageSize;
-      var paginatedMessages = sentMessages.slice(startIndex, endIndex);
+      var paginatedMessages = sentMessages.slice(startIndex, endIndex).reverse();
 
       if (paginatedMessages.length === 0) {
         var tableBody = document.getElementById("sentMessagesTableBody");
@@ -59,19 +59,23 @@
         document.getElementById('exportBtn').disabled = true;
       }
 
-      var tableBody = document.getElementById("sentMessagesTableBody");
-      tableBody.innerHTML = ""; // Clear existing rows
+      else {
+        var tableBody = document.getElementById("sentMessagesTableBody");
+        tableBody.innerHTML = ""; // Clear existing rows
 
-      paginatedMessages.forEach(function (message) {
-        var row = tableBody.insertRow();
-        var recipientCell = row.insertCell(0);
-        var categoryCell = row.insertCell(1);
-        var timestampCell = row.insertCell(2);
+        paginatedMessages.forEach(function (message) {
+          var row = tableBody.insertRow();
+          var recipientCell = row.insertCell(0);
+          var categoryCell = row.insertCell(1);
+          var timestampCell = row.insertCell(2);
 
-        recipientCell.textContent = message.number;
-        categoryCell.textContent = message.category;
-        timestampCell.textContent = new Date(message.timestamp).toLocaleString(); // Convert timestamp to local date and time format
-      });
+          recipientCell.textContent = message.number;
+          categoryCell.textContent = message.category;
+          timestampCell.textContent = new Date(message.timestamp).toLocaleString(); // Convert timestamp to local date and time format
+        });
+      }
+
+
     }
 
     // Function to generate pagination links
@@ -79,7 +83,7 @@
       var pagination = document.getElementById("pagination");
       pagination.innerHTML = "";
 
-      for (var i = 1; i <= totalPages; i++) {
+      for (var i = totalPages; i >= 1; i--) {
         var li = document.createElement("li");
         li.classList.add("page-item");
         var link = document.createElement("a");
@@ -120,6 +124,28 @@
       var wb = XLSX.utils.book_new();
       XLSX.utils.book_append_sheet(wb, ws, "Sent Messages");
       XLSX.writeFile(wb, "sent_messages.xlsx");
+    });
+
+
+    $(document).ready(function () {
+
+      // Check if the 'user' cookie is present
+      var userCookie = getCookie('user');
+      console.log(userCookie);
+      if (!userCookie) {
+        // If 'user' cookie is not present, redirect to indesc.html
+        window.location.href = 'index.html';
+      }
+
+      var messageCount = getCookie('APICalled');
+      $('#messageCount').text("Total messages sent: " + messageCount);
+
+      $('#logoutBtn').click(function () {
+        // Redirect to logout page or perform logout action
+        // For example, redirect to logout.html
+        delete_cookie("user");
+        window.location.href = 'index.html';
+      });
     });
   </script>
 </body>
