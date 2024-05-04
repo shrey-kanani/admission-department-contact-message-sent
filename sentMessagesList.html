@@ -83,7 +83,7 @@
       var pagination = document.getElementById("pagination");
       pagination.innerHTML = "";
 
-      for (var i = totalPages; i >= 1; i--) {
+      for (var i = 1; i <= totalPages; i++) {
         var li = document.createElement("li");
         li.classList.add("page-item");
         var link = document.createElement("a");
