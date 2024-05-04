@@ -1,4 +1,19 @@
 $(document).ready(function () {
+  // Retrieve existing records from localStorage
+  var sentMessages = JSON.parse(localStorage.getItem("sentMessages")) || [];
+
+  // Get today's date
+  var today = new Date().toISOString().slice(0, 10);
+
+  // Filter sent messages for today
+  var todaysMessages = sentMessages.filter(function (message) {
+    return message.timestamp.slice(0, 10) === today;
+  });
+
+  // Display count of today's messages
+  $("#todaysMessageCount").text(
+    "Today's messages sent: " + todaysMessages.length
+  );
   $("#apiForm").submit(function (event) {
     event.preventDefault();
     var apiKey =
@@ -12,22 +27,6 @@ $(document).ready(function () {
     $('input[type="checkbox"]:checked').each(function () {
       selectedCategories.push($(this).val()); // Add the value of checked checkbox to the array
     });
-
-    // Retrieve existing records from localStorage
-    var sentMessages = JSON.parse(localStorage.getItem("sentMessages")) || [];
-
-    // Get today's date
-    var today = new Date().toISOString().slice(0, 10);
-
-    // Filter sent messages for today
-    var todaysMessages = sentMessages.filter(function (message) {
-      return message.timestamp.slice(0, 10) === today;
-    });
-
-    // Display count of today's messages
-    $("#todaysMessageCount").text(
-      "Today's messages sent: " + todaysMessages.length
-    );
 
     $(selectedCategories).each(function (i, category) {
       console.log(category);
