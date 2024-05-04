@@ -221,6 +221,21 @@ function saveSentMessageRecord(number, category, timestamp) {
   // Retrieve existing records from localStorage
   var sentMessages = JSON.parse(localStorage.getItem("sentMessages")) || [];
 
+  // Get today's date
+  var today = new Date().toISOString().slice(0, 10);
+  console.log(today);
+
+  // Filter sent messages for today
+  var todaysMessages = sentMessages.filter(function (message) {
+    return message.timestamp.slice(0, 10) === today;
+  });
+  console.log(todaysMessages);
+
+  // Display count of today's messages
+  $("#todaysMessageCount").text(
+    "Today's messages sent: " + todaysMessages.length
+  );
+
   // Add new record
   sentMessages.push({
     number: number,
