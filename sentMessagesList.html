@@ -51,7 +51,7 @@
       var sentMessages = JSON.parse(localStorage.getItem("sentMessages")) || [];
       var startIndex = (pageNumber - 1) * pageSize;
       var endIndex = startIndex + pageSize;
-      var paginatedMessages = sentMessages.slice(startIndex, endIndex).reverse();
+      var paginatedMessages = sentMessages.reverse().slice(startIndex, endIndex);
 
       if (paginatedMessages.length === 0) {
         var tableBody = document.getElementById("sentMessagesTableBody");
