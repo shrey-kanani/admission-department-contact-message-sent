@@ -14,6 +14,7 @@ $(document).ready(function () {
   $("#todaysMessageCount").text(
     "Today's messages sent: " + todaysMessages.length
   );
+
   $("#apiForm").submit(function (event) {
     event.preventDefault();
     var apiKey =
@@ -236,6 +237,16 @@ function saveSentMessageRecord(number, category, timestamp) {
   // Retrieve existing records from localStorage
   var sentMessages = JSON.parse(localStorage.getItem("sentMessages")) || [];
 
+  // Add new record
+  sentMessages.push({
+    number: number,
+    category: category,
+    timestamp: timestamp,
+  });
+
+  // Save updated records to localStorage
+  localStorage.setItem("sentMessages", JSON.stringify(sentMessages));
+
   // Get today's date
   var today = new Date().toISOString().slice(0, 10);
 
@@ -248,14 +259,4 @@ function saveSentMessageRecord(number, category, timestamp) {
   $("#todaysMessageCount").text(
     "Today's messages sent: " + todaysMessages.length
   );
-
-  // Add new record
-  sentMessages.push({
-    number: number,
-    category: category,
-    timestamp: timestamp,
-  });
-
-  // Save updated records to localStorage
-  localStorage.setItem("sentMessages", JSON.stringify(sentMessages));
 }
