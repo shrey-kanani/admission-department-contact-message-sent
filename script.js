@@ -31,156 +31,206 @@ $(document).ready(function () {
 
     $(selectedCategories).each(function (i, category) {
       console.log(category);
-      // Fetch JSON data
-      $.getJSON("data.json", function (data) {
-        var items = data[category];
 
-        if (items.length == 1) {
-          let contactNumber = items[0].number;
-          let contactPerson = items[0].name;
-          let course = category;
-
-          // Make API call using fetched data
-          $.ajax({
-            url: "https://wb-api.chatomate.in/whatsapp-cloud/messages", // Replace apiEndpoint with your actual API endpoint
-            method: "POST", // Adjust the method as needed (POST, GET, etc.)
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: apiKey,
-            },
-            data: JSON.stringify({
-              to: "91" + number,
-              type: "template",
-              source: "external",
-              template: {
-                name: "admission_officer_contact_details_single_send",
-                language: {
-                  code: "en",
-                },
-                components: [
-                  {
-                    type: "body",
-                    parameters: [
-                      {
-                        type: "text",
-                        text: course,
-                      },
-                      {
-                        type: "text",
-                        text: contactPerson,
-                      },
-                      {
-                        type: "text",
-                        text: contactNumber,
-                      },
-                    ],
-                  },
-                ],
+      if (category === "Counceling Center Address Rajkot") {
+        $.ajax({
+          url: "https://wb-api.chatomate.in/whatsapp-cloud/messages", // Replace apiEndpoint with your actual API endpoint
+          method: "POST", // Adjust the method as needed (POST, GET, etc.)
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: apiKey,
+          },
+          data: JSON.stringify({
+            to: "91" + number,
+            type: "template",
+            source: "external",
+            template: {
+              name: "counseling_center_rajkot_address_2",
+              language: {
+                code: "en",
               },
-            }),
-            success: function (response) {
-              if (!getCookie("APICalled")) {
-                setCookie("APICalled", 1, 30);
-              } else {
-                updateCookieData();
-              }
-              saveSentMessageRecord(number, course, new Date().toISOString());
-              var messageCount = getCookie("APICalled");
-              $("#messageCount").text("Total messages sent: " + messageCount);
-              $("#result").html(
-                `<div class="alert alert-success"><strong>Success!</strong> Message Sent Successfully.</div>`
-              );
-              document.getElementById("apiForm").reset();
-              setFocusToFirstField();
+              components: [],
             },
-            error: function (xhr, status, error) {
-              $("#result").html(
-                `<div class="alert alert-danger"><strong>Failed!</strong> Some error occured</div>`
-              );
+          }),
+          success: function (response) {
+            if (!getCookie("APICalled")) {
+              setCookie("APICalled", 1, 30);
+            } else {
+              updateCookieData();
+            }
+            saveSentMessageRecord(
+              number,
+              "Counceling Center Address Rajkot",
+              new Date().toISOString()
+            );
+            var messageCount = getCookie("APICalled");
+            $("#messageCount").text("Total messages sent: " + messageCount);
+            $("#result").html(
+              `<div class="alert alert-success"><strong>Success!</strong> Message Sent Successfully.</div>`
+            );
+            document.getElementById("apiForm").reset();
+            setFocusToFirstField();
+          },
+          error: function (xhr, status, error) {
+            $("#result").html(
+              `<div class="alert alert-danger"><strong>Failed!</strong> Some error occured</div>`
+            );
 
-              // Handle error here
-            },
-          });
-        } else if (items.length == 2) {
-          let contactNumber = items[0].number;
-          let contactPerson = items[0].name;
-          let contactNumber2 = items[1].number;
-          let contactPerson2 = items[1].name;
-          let course = category;
+            // Handle error here
+          },
+        });
+      } else {
+        // Fetch JSON data
+        $.getJSON("data.json", function (data) {
+          var items = data[category];
 
-          // Make API call using fetched data
-          $.ajax({
-            url: "https://wb-api.chatomate.in/whatsapp-cloud/messages", // Replace apiEndpoint with your actual API endpoint
-            method: "POST", // Adjust the method as needed (POST, GET, etc.)
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: apiKey,
-            },
-            data: JSON.stringify({
-              to: "91" + number,
-              type: "template",
-              source: "external",
-              template: {
-                name: "admission_officer_contact_details_send_multiple_2",
-                language: {
-                  code: "en",
-                },
-                components: [
-                  {
-                    type: "body",
-                    parameters: [
-                      {
-                        type: "text",
-                        text: course,
-                      },
-                      {
-                        type: "text",
-                        text: contactPerson,
-                      },
-                      {
-                        type: "text",
-                        text: contactNumber,
-                      },
-                      {
-                        type: "text",
-                        text: contactPerson2,
-                      },
-                      {
-                        type: "text",
-                        text: contactNumber2,
-                      },
-                    ],
-                  },
-                ],
+          if (items.length == 1) {
+            let contactNumber = items[0].number;
+            let contactPerson = items[0].name;
+            let course = category;
+
+            // Make API call using fetched data
+            $.ajax({
+              url: "https://wb-api.chatomate.in/whatsapp-cloud/messages", // Replace apiEndpoint with your actual API endpoint
+              method: "POST", // Adjust the method as needed (POST, GET, etc.)
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: apiKey,
               },
-            }),
-            success: function (response) {
-              if (!getCookie("APICalled")) {
-                setCookie("APICalled", 1, 30);
-              } else {
-                updateCookieData();
-              }
-              saveSentMessageRecord(number, course, new Date().toISOString());
-              var messageCount = getCookie("APICalled");
-              $("#messageCount").text("Total messages sent: " + messageCount);
-              $("#result").html(
-                `<div class="alert alert-success"><strong>Success!</strong> Message Sent Successfully.</div>`
-              );
-              document.getElementById("apiForm").reset();
-              setFocusToFirstField();
-            },
-            error: function (xhr, status, error) {
-              $("#result").html(
-                `<div class="alert alert-danger"><strong>Failed!</strong> Some error occured</div>`
-              );
-            },
-          });
-        } else {
-          $("#result").html("<p>No items found for selected category.</p>");
-        }
-      }).fail(function () {
-        $("#result").html("<p>Error: Failed to load JSON data.</p>");
-      });
+              data: JSON.stringify({
+                to: "91" + number,
+                type: "template",
+                source: "external",
+                template: {
+                  name: "admission_officer_contact_details_single_send",
+                  language: {
+                    code: "en",
+                  },
+                  components: [
+                    {
+                      type: "body",
+                      parameters: [
+                        {
+                          type: "text",
+                          text: course,
+                        },
+                        {
+                          type: "text",
+                          text: contactPerson,
+                        },
+                        {
+                          type: "text",
+                          text: contactNumber,
+                        },
+                      ],
+                    },
+                  ],
+                },
+              }),
+              success: function (response) {
+                if (!getCookie("APICalled")) {
+                  setCookie("APICalled", 1, 30);
+                } else {
+                  updateCookieData();
+                }
+                saveSentMessageRecord(number, course, new Date().toISOString());
+                var messageCount = getCookie("APICalled");
+                $("#messageCount").text("Total messages sent: " + messageCount);
+                $("#result").html(
+                  `<div class="alert alert-success"><strong>Success!</strong> Message Sent Successfully.</div>`
+                );
+                document.getElementById("apiForm").reset();
+                setFocusToFirstField();
+              },
+              error: function (xhr, status, error) {
+                $("#result").html(
+                  `<div class="alert alert-danger"><strong>Failed!</strong> Some error occured</div>`
+                );
+
+                // Handle error here
+              },
+            });
+          } else if (items.length == 2) {
+            let contactNumber = items[0].number;
+            let contactPerson = items[0].name;
+            let contactNumber2 = items[1].number;
+            let contactPerson2 = items[1].name;
+            let course = category;
+
+            // Make API call using fetched data
+            $.ajax({
+              url: "https://wb-api.chatomate.in/whatsapp-cloud/messages", // Replace apiEndpoint with your actual API endpoint
+              method: "POST", // Adjust the method as needed (POST, GET, etc.)
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: apiKey,
+              },
+              data: JSON.stringify({
+                to: "91" + number,
+                type: "template",
+                source: "external",
+                template: {
+                  name: "admission_officer_contact_details_send_multiple_2",
+                  language: {
+                    code: "en",
+                  },
+                  components: [
+                    {
+                      type: "body",
+                      parameters: [
+                        {
+                          type: "text",
+                          text: course,
+                        },
+                        {
+                          type: "text",
+                          text: contactPerson,
+                        },
+                        {
+                          type: "text",
+                          text: contactNumber,
+                        },
+                        {
+                          type: "text",
+                          text: contactPerson2,
+                        },
+                        {
+                          type: "text",
+                          text: contactNumber2,
+                        },
+                      ],
+                    },
+                  ],
+                },
+              }),
+              success: function (response) {
+                if (!getCookie("APICalled")) {
+                  setCookie("APICalled", 1, 30);
+                } else {
+                  updateCookieData();
+                }
+                saveSentMessageRecord(number, course, new Date().toISOString());
+                var messageCount = getCookie("APICalled");
+                $("#messageCount").text("Total messages sent: " + messageCount);
+                $("#result").html(
+                  `<div class="alert alert-success"><strong>Success!</strong> Message Sent Successfully.</div>`
+                );
+                document.getElementById("apiForm").reset();
+                setFocusToFirstField();
+              },
+              error: function (xhr, status, error) {
+                $("#result").html(
+                  `<div class="alert alert-danger"><strong>Failed!</strong> Some error occured</div>`
+                );
+              },
+            });
+          } else {
+            $("#result").html("<p>No items found for selected category.</p>");
+          }
+        }).fail(function () {
+          $("#result").html("<p>Error: Failed to load JSON data.</p>");
+        });
+      }
     });
   });
 });
