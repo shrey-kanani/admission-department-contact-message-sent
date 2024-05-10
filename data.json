@@ -40,7 +40,7 @@
     { "id": 18, "name": "Prof. Dhaval Vyas", "number": "9638595263" },
     { "id": 19, "name": "Prof. Smit Vachhani", "number": "7359786060" }
   ],
-  "B. Sc. Microbiology ": [
+  "B. Sc. Microbiology": [
     { "id": 20, "name": "Prof. Sagar Joshi ", "number": "7096979983" }
   ],
   "B.Tech. Computer Science & Engineering": [
@@ -77,9 +77,7 @@
   "Admission Transfer": [
     { "id": 33, "name": "Prof. Hardik Acharya", "number": "9727630090" }
   ],
-  "Hostel": [
-    { "id": 34, "name": "Mr. Darshan Sheth", "number": "7096979911" }
-  ],
+  "Hostel": [{ "id": 34, "name": "Mr. Darshan Sheth", "number": "7096979911" }],
   "Transport": [
     { "id": 35, "name": "Mr. Chirag Bumtariya", "number": "9512770018" }
   ]
