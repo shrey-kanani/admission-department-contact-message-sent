@@ -79,6 +79,53 @@ $(document).ready(function () {
             // Handle error here
           },
         });
+      } else if (category === "University Campus Address") {
+        $.ajax({
+          url: "https://wb-api.chatomate.in/whatsapp-cloud/messages", // Replace apiEndpoint with your actual API endpoint
+          method: "POST", // Adjust the method as needed (POST, GET, etc.)
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: apiKey,
+          },
+          data: JSON.stringify({
+            to: "91" + number,
+            type: "template",
+            source: "external",
+            template: {
+              name: "campus_address",
+              language: {
+                code: "en",
+              },
+              components: [],
+            },
+          }),
+          success: function (response) {
+            if (!getCookie("APICalled")) {
+              setCookie("APICalled", 1, 30);
+            } else {
+              updateCookieData();
+            }
+            saveSentMessageRecord(
+              number,
+              "Counceling Center Address Rajkot",
+              new Date().toISOString()
+            );
+            var messageCount = getCookie("APICalled");
+            $("#messageCount").text("Total messages sent: " + messageCount);
+            $("#result").html(
+              `<div class="alert alert-success"><strong>Success!</strong> Message Sent Successfully.</div>`
+            );
+            document.getElementById("apiForm").reset();
+            setFocusToFirstField();
+          },
+          error: function (xhr, status, error) {
+            $("#result").html(
+              `<div class="alert alert-danger"><strong>Failed!</strong> Some error occured</div>`
+            );
+
+            // Handle error here
+          },
+        });
       } else {
         // Fetch JSON data
         $.getJSON("data.json", function (data) {
