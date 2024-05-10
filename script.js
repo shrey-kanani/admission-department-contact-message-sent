@@ -45,7 +45,7 @@ $(document).ready(function () {
             type: "template",
             source: "external",
             template: {
-              name: "counseling_center_rajkot_address_2",
+              name: "counseling_center_rajkot_address_3",
               language: {
                 code: "en",
               },
