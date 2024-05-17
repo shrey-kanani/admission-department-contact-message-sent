@@ -57,7 +57,6 @@
       var startIndex = (pageNumber - 1) * pageSize;
       var endIndex = startIndex + pageSize;
       var paginatedMessages = sentMessages.reverse().slice(startIndex, endIndex);
-      console.log(sentMessages);
 
       var tableBody = document.getElementById("sentMessagesTableBody");
       tableBody.innerHTML = ""; // Clear existing rows
@@ -68,7 +67,6 @@
       } else {
         var i = startIndex + 1; // Reset i to startIndex + 1 for the current page
         paginatedMessages.forEach(function (message) {
-          console.log(message);
           var row = tableBody.insertRow();
           var srCell = row.insertCell(0);
           var recipientCell = row.insertCell(1);
