@@ -29,6 +29,12 @@
       "email": "alpesh.vaghela@darshan.ac.in",
       "password": "adv@123",
       "name": "Alpesh Vaghela"
+    },
+    {
+      "id": 6,
+      "email": "rushi.rajyaguru@darshan.ac.in",
+      "password": "rtr@123",
+      "name": "Rushi Rajyaguru"
     }
   ]
 }
