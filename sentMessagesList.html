@@ -46,42 +46,41 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <!-- Bootstrap JS -->
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+  <!-- XLSX Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
 
   <!-- Your custom script -->
   <script>
     // Function to display paginated records from localStorage
-    let i = 0;
     function displayPaginatedSentMessages(pageNumber, pageSize) {
       var sentMessages = JSON.parse(localStorage.getItem("sentMessages")) || [];
       var startIndex = (pageNumber - 1) * pageSize;
       var endIndex = startIndex + pageSize;
       var paginatedMessages = sentMessages.reverse().slice(startIndex, endIndex);
+      console.log(sentMessages);
+
+      var tableBody = document.getElementById("sentMessagesTableBody");
+      tableBody.innerHTML = ""; // Clear existing rows
 
       if (paginatedMessages.length === 0) {
-        var tableBody = document.getElementById("sentMessagesTableBody");
-        tableBody.innerHTML = "<tr><td colspan='3' class='text-center'>No records found.</td></tr>"; // Clear existing rows
+        tableBody.innerHTML = "<tr><td colspan='4' class='text-center'>No records found.</td></tr>";
         document.getElementById('exportBtn').disabled = true;
-      }
-
-      else {
-        var tableBody = document.getElementById("sentMessagesTableBody");
-        tableBody.innerHTML = ""; // Clear existing rows
+      } else {
+        var i = startIndex + 1; // Reset i to startIndex + 1 for the current page
         paginatedMessages.forEach(function (message) {
-          i++;
+          console.log(message);
           var row = tableBody.insertRow();
           var srCell = row.insertCell(0);
           var recipientCell = row.insertCell(1);
           var categoryCell = row.insertCell(2);
           var timestampCell = row.insertCell(3);
 
-          srCell.textContent = i;
+          srCell.textContent = i++;
           recipientCell.textContent = message.number;
           categoryCell.textContent = message.category;
           timestampCell.textContent = new Date(message.timestamp).toLocaleString(); // Convert timestamp to local date and time format
         });
       }
-
-
     }
 
     // Function to generate pagination links
@@ -99,7 +98,7 @@
         link.addEventListener("click", function (event) {
           event.preventDefault();
           var pageNumber = parseInt(event.target.textContent);
-          displayPaginatedSentMessages(pageNumber, 10); // Assuming 10 records per page
+          displayPaginatedSentMessages(pageNumber, 20); // Assuming 20 records per page
         });
         li.appendChild(link);
         pagination.appendChild(li);
@@ -107,14 +106,11 @@
     }
 
     // Call the function to initially display the first page
-    displayPaginatedSentMessages(1, 10); // Assuming 10 records per page
-
-    // Call the function to generate pagination links
-    generatePaginationLinks(1); // Initially 1 page
+    displayPaginatedSentMessages(1, 20); // Assuming 20 records per page
 
     // Sample code to calculate total pages
     var sentMessages = JSON.parse(localStorage.getItem("sentMessages")) || [];
-    var totalPages = Math.ceil(sentMessages.length / 10); // Assuming 10 records per page
+    var totalPages = Math.ceil(sentMessages.length / 20); // Assuming 20 records per page
 
     // Update pagination links based on total pages
     generatePaginationLinks(totalPages);
@@ -132,14 +128,12 @@
       XLSX.writeFile(wb, "sent_messages.xlsx");
     });
 
-
     $(document).ready(function () {
-
       // Check if the 'user' cookie is present
       var userCookie = getCookie('user');
       console.log(userCookie);
       if (!userCookie) {
-        // If 'user' cookie is not present, redirect to indesc.html
+        // If 'user' cookie is not present, redirect to index.html
         window.location.href = 'index.html';
       }
 
@@ -153,6 +147,21 @@
         window.location.href = 'index.html';
       });
     });
+
+    function getCookie(name) {
+      let cookies = document.cookie.split(';');
+      for (let i = 0; i < cookies.length; i++) {
+        let cookie = cookies[i].trim();
+        if (cookie.startsWith(name + '=')) {
+          return cookie.substring(name.length + 1);
+        }
+      }
+      return null;
+    }
+
+    function delete_cookie(name) {
+      document.cookie = name + '=; Expires=Thu, 01 Jan 1970 00:00:01 GMT; Path=/;';
+    }
   </script>
 </body>
 
