@@ -15,6 +15,216 @@ $(document).ready(function () {
     "Today's messages sent: " + todaysMessages.length
   );
 
+  // prettier-ignore
+  let data = [
+    {
+      "id": "0",
+      "text": "DIET",
+      "children": [
+        {
+          "id": "B.Tech. Computer Science & Engineering",
+          "text": "B.Tech. Computer Science & Engineering"
+        },
+        {
+          "id": "B.Tech. Civil Engineering",
+          "text": "B.Tech. Civil Engineering"
+        },
+        {
+          "id": "B.Tech. Mechanical Engineering",
+          "text": "B.Tech. Mechanical Engineering"
+        },
+        {
+          "id": "M.Tech. Computer Engineering",
+          "text": "M.Tech. Computer Engineering"
+        },
+        {
+          "id": "M.Tech. Civil Engineering",
+          "text": "M.Tech. Civil Engineering"
+        },
+        {
+          "id": "M.Tech. Mechanical Engineering",
+          "text": "M.Tech. Mechanical Engineering"
+        }
+      ]
+    },
+    {
+      "id": "1",
+      "text": "DIETDS",
+      "children": [
+        {
+          "id": "Diploma Computer",
+          "text": "Diploma Computer"
+        },
+        {
+          "id": "Diploma Civil",
+          "text": "Diploma Civil"
+        },
+        {
+          "id": "Diploma Mechanical",
+          "text": "Diploma Mechanical"
+        },
+        {
+          "id": "Diploma Electrical",
+          "text": "Diploma Electrical"
+        }
+      ]
+    }
+  ];
+
+  let data2 = [
+    {
+      id: "2",
+      text: "DICA",
+      children: [
+        {
+          id: "BCA",
+          text: "BCA",
+        },
+        {
+          id: "B.Sc. (IT)",
+          text: "B.Sc. (IT)",
+        },
+        {
+          id: "B.Sc. (Honors) Computer Science",
+          text: "B.Sc. (Honors) Computer Science",
+        },
+        {
+          id: "MCA",
+          text: "MCA",
+        },
+      ],
+    },
+    {
+      id: "3",
+      text: "DIM",
+      children: [
+        {
+          id: "BBA",
+          text: "BBA",
+        },
+        {
+          id: "BBA (Honors) Digital Marketing",
+          text: "BBA (Honors) Digital Marketing",
+        },
+        {
+          id: "B. Com.",
+          text: "B. Com.",
+        },
+        {
+          id: "B. Com. (Honors)",
+          text: "B. Com. (Honors)",
+        },
+        {
+          id: "MBA",
+          text: "MBA",
+        },
+      ],
+    },
+  ];
+
+  let data3 = [
+    {
+      id: "4",
+      text: "DIS",
+      children: [
+        {
+          id: "B. Sc. Microbiology",
+          text: "B. Sc. Microbiology",
+        },
+      ],
+    },
+    {
+      id: "5",
+      text: "DIR",
+      children: [
+        {
+          id: "PhD",
+          text: "PhD",
+        },
+      ],
+    },
+    {
+      id: "6",
+      text: "DIH",
+      children: [
+        {
+          id: "M. A. Yoga",
+          text: "M. A. Yoga",
+        },
+      ],
+    },
+    {
+      id: "Admission Cell",
+      text: "Admission Cell",
+    },
+    {
+      id: "7",
+      text: "Other",
+      children: [
+        {
+          id: "Admission Transfer",
+          text: "Admission Transfer",
+        },
+        {
+          id: "Hostel",
+          text: "Hostel",
+        },
+        {
+          id: "Transport",
+          text: "Transport",
+        },
+        {
+          id: "Rajkot Office Address",
+          text: "Rajkot Office Address",
+        },
+        {
+          id: "University Campus Address",
+          text: "University Campus Address",
+        },
+      ],
+    },
+  ];
+
+  let tree = new Tree(".container1", {
+    data: data,
+    closeDepth: 3,
+    loaded: function () {
+      this.values = ["0-0-0", "0-1-1"];
+      // console.log(this.selectedNodes);
+      // console.log(this.values);
+      this.disables = ["0-0-0", "0-0-1", "0-0-2"];
+    },
+    onChange: function () {
+      // console.log(this.values);
+    },
+  });
+  let tree2 = new Tree(".container2", {
+    data: data2,
+    closeDepth: 3,
+    loaded: function () {
+      this.values = ["0-0-0", "0-1-1"];
+      // console.log(this.selectedNodes);
+      // console.log(this.values);
+      this.disables = ["0-0-0", "0-0-1", "0-0-2"];
+    },
+    onChange: function () {
+      // console.log(this.values);
+    },
+  });
+  let tree3 = new Tree(".container3", {
+    data: data3,
+    closeDepth: 3,
+    loaded: function () {
+      this.values = ["0-0-0", "0-1-1"];
+      // console.log(this.selectedNodes);
+      // console.log(this.values);
+      this.disables = ["0-0-0", "0-0-1", "0-0-2"];
+    },
+    onChange: function () {
+      // console.log(this.values);
+    },
+  });
+
   $("#apiForm").submit(function (event) {
     event.preventDefault();
     var apiKey =
@@ -24,15 +234,20 @@ $(document).ready(function () {
     // Array to store selected categories
     var selectedCategories = [];
 
-    // Iterate through each checkbox
-    $('input[type="checkbox"]:checked').each(function () {
-      selectedCategories.push($(this).val()); // Add the value of checked checkbox to the array
+    tree.selectedNodes.forEach((el) => {
+      if (isNaN(el.id)) selectedCategories.push(el);
     });
+    tree2.selectedNodes.forEach((el) => {
+      if (isNaN(el.id)) selectedCategories.push(el);
+    });
+    tree3.selectedNodes.forEach((el) => {
+      if (isNaN(el.id)) selectedCategories.push(el);
+    });
+    // console.log(selectedCategories);
 
     $(selectedCategories).each(function (i, category) {
-      console.log(category);
-
-      if (category === "Counceling Center Address Rajkot") {
+      category = category.text;
+      if (category === "Rajkot Office Address") {
         $.ajax({
           url: "https://wb-api.chatomate.in/whatsapp-cloud/messages", // Replace apiEndpoint with your actual API endpoint
           method: "POST", // Adjust the method as needed (POST, GET, etc.)
@@ -70,19 +285,21 @@ $(document).ready(function () {
             );
             document.getElementById("apiForm").reset();
             setFocusToFirstField();
+
+            setTimeout(() => {
+              location.reload();
+            }, 2000);
           },
           error: function (xhr, status, error) {
             $("#result").html(
               `<div class="alert alert-danger"><strong>Failed!</strong> Some error occured</div>`
             );
-
-            // Handle error here
           },
         });
       } else if (category === "University Campus Address") {
         $.ajax({
-          url: "https://wb-api.chatomate.in/whatsapp-cloud/messages", // Replace apiEndpoint with your actual API endpoint
-          method: "POST", // Adjust the method as needed (POST, GET, etc.)
+          url: "https://wb-api.chatomate.in/whatsapp-cloud/messages",
+          method: "POST",
           headers: {
             "Content-Type": "application/json",
             Authorization: apiKey,
@@ -117,12 +334,15 @@ $(document).ready(function () {
             );
             document.getElementById("apiForm").reset();
             setFocusToFirstField();
+
+            setTimeout(() => {
+              location.reload();
+            }, 2000);
           },
           error: function (xhr, status, error) {
             $("#result").html(
               `<div class="alert alert-danger"><strong>Failed!</strong> Some error occured</div>`
             );
-
             // Handle error here
           },
         });
@@ -130,16 +350,14 @@ $(document).ready(function () {
         // Fetch JSON data
         $.getJSON("data.json", function (data) {
           var items = data[category];
-
           if (items.length == 1) {
             let contactNumber = items[0].number;
             let contactPerson = items[0].name;
             let course = category;
-
             // Make API call using fetched data
             $.ajax({
-              url: "https://wb-api.chatomate.in/whatsapp-cloud/messages", // Replace apiEndpoint with your actual API endpoint
-              method: "POST", // Adjust the method as needed (POST, GET, etc.)
+              url: "https://wb-api.chatomate.in/whatsapp-cloud/messages",
+              method: "POST",
               headers: {
                 "Content-Type": "application/json",
                 Authorization: apiKey,
@@ -188,12 +406,15 @@ $(document).ready(function () {
                 );
                 document.getElementById("apiForm").reset();
                 setFocusToFirstField();
+
+                setTimeout(() => {
+                  location.reload();
+                }, 2000);
               },
               error: function (xhr, status, error) {
                 $("#result").html(
                   `<div class="alert alert-danger"><strong>Failed!</strong> Some error occured</div>`
                 );
-
                 // Handle error here
               },
             });
@@ -203,7 +424,6 @@ $(document).ready(function () {
             let contactNumber2 = items[1].number;
             let contactPerson2 = items[1].name;
             let course = category;
-
             // Make API call using fetched data
             $.ajax({
               url: "https://wb-api.chatomate.in/whatsapp-cloud/messages", // Replace apiEndpoint with your actual API endpoint
@@ -264,6 +484,10 @@ $(document).ready(function () {
                 );
                 document.getElementById("apiForm").reset();
                 setFocusToFirstField();
+
+                setTimeout(() => {
+                  location.reload();
+                }, 2000);
               },
               error: function (xhr, status, error) {
                 $("#result").html(
