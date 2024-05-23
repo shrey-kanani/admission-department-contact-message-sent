@@ -277,9 +277,9 @@ $(document).ready(function () {
       // console.log(this.values);
     },
   });
-
+  let tree4;
   if (getCookie("user") == "Hardik Lakhani") {
-    let tree4 = new Tree(".container4", {
+    tree4 = new Tree(".container4", {
       data: data4,
       closeDepth: 3,
       loaded: function () {
