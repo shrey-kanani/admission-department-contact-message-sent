@@ -6,6 +6,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>API Call Demo</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    .form-group2 {
+      display: flex;
+      align-items: center;
+    }
+
+    .form-group2 label {
+      margin-right: 10px;
+      min-width: 150px;
+      /* Adjust as needed for label width */
+    }
+
+    .form-group2 input {
+      flex: 1;
+    }
+  </style>
 </head>
 
 <body>
@@ -13,8 +29,8 @@
     <div class="row">
       <div class="col-9">
         <h2>Whatsapp Send Contact Details</h2>
-        <span id="messageCount"></span>
-        <p id="todaysMessageCount">Today's messages sent: 0</p>
+        <span id="messageCount"></span> <strong>&</strong>
+        <span id="todaysMessageCount">Today's messages sent: 0</span>
         <div><a href="/sentMessagesList.html">See List</a></div>
       </div>
       <div class="col-3 text-right">
@@ -23,9 +39,9 @@
     </div>
     <hr>
     <form id="apiForm">
-      <div class="form-group">
-        <label for="number">10 Digit Number:</label>
-        <input type="text" class="form-control" id="number" pattern="[0-9]{10}" required>
+      <div class="form-group form-group2">
+        <label for="number">Enter Mobile Number:</label>
+        <input type="text" class="form-control" id="number" pattern="[0-9]{10}" placeholder="ex. 1234567890" required>
       </div>
       <div class="form-group ">
         <label class="h5">Category:</label><br>
@@ -34,7 +50,11 @@
             <div class="col-md-4 container1"></div>
             <div class="col-md-4 container2"></div>
             <div class="col-md-4 container3"></div>
+            <div class="col-md-4 container4"></div>
+            <div class="col-md-4 container5"></div>
+            <div class="col-md-4 container6"></div>
           </div>
+
         </div>
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>

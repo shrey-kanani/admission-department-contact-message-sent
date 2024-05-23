@@ -185,6 +185,59 @@ $(document).ready(function () {
     },
   ];
 
+  let data4 = [
+    {
+      id: "8",
+      text: "Certificate",
+      children: [
+        {
+          id: "Attempt Certificate",
+          text: "Attempt Certificate",
+        },
+        {
+          id: "Migration Certificate",
+          text: "Migration Certificate",
+        },
+        {
+          id: "No Objection Certificate",
+          text: "No Objection Certificate",
+        },
+        {
+          id: "Letter of Recommendation Certificate",
+          text: "Letter of Recommendation Certificate",
+        },
+        {
+          id: "Transcript Certificate",
+          text: "Transcript Certificate",
+        },
+        {
+          id: "Percentage Conversion Certificate",
+          text: "Percentage Conversion Certificate",
+        },
+        {
+          id: "English Proficiency Certificate",
+          text: "English Proficiency Certificate",
+        },
+        {
+          id: "Letter of University Recognition Certificate",
+          text: "Letter of University Recognition Certificate",
+        },
+        {
+          id: "Duplicate Degree Certificate",
+          text: "Duplicate Degree Certificate",
+        },
+        {
+          id: "Duplicate Gradesheet Certificate",
+          text: "Duplicate Gradesheet Certificate",
+        },
+        {
+          id: "No Backlog Certificate",
+          text: "No Backlog Certificate",
+        },
+      ],
+    },
+  ];
+
   let tree = new Tree(".container1", {
     data: data,
     closeDepth: 3,
@@ -225,6 +278,22 @@ $(document).ready(function () {
     },
   });
 
+  if (getCookie("user") == "Hardik Lakhani") {
+    let tree4 = new Tree(".container4", {
+      data: data4,
+      closeDepth: 3,
+      loaded: function () {
+        this.values = ["0-0-0", "0-1-1"];
+        // console.log(this.selectedNodes);
+        // console.log(this.values);
+        this.disables = ["0-0-0", "0-0-1", "0-0-2"];
+      },
+      onChange: function () {
+        // console.log(this.values);
+      },
+    });
+  }
+
   $("#apiForm").submit(function (event) {
     event.preventDefault();
     var apiKey =
@@ -233,6 +302,19 @@ $(document).ready(function () {
 
     // Array to store selected categories
     var selectedCategories = [];
+    let certificates = [
+      "Attempt Certificate",
+      "Migration Certificate",
+      "No Objection Certificate",
+      "Letter of Recommendation Certificate",
+      "Transcript Certificate",
+      "Percentage Conversion Certificate",
+      "English Proficiency Certificate",
+      "Letter of University Recognition Certificate",
+      "Duplicate Degree Certificate",
+      "Duplicate Gradesheet Certificate",
+      "No Backlog Certificate",
+    ];
 
     tree.selectedNodes.forEach((el) => {
       if (isNaN(el.id)) selectedCategories.push(el);
@@ -243,7 +325,11 @@ $(document).ready(function () {
     tree3.selectedNodes.forEach((el) => {
       if (isNaN(el.id)) selectedCategories.push(el);
     });
-    // console.log(selectedCategories);
+    tree4.selectedNodes.forEach((el) => {
+      if (isNaN(el.id)) selectedCategories.push(el);
+    });
+
+    console.log(selectedCategories);
 
     $(selectedCategories).each(function (i, category) {
       category = category.text;
@@ -314,6 +400,66 @@ $(document).ready(function () {
                 code: "en",
               },
               components: [],
+            },
+          }),
+          success: function (response) {
+            if (!getCookie("APICalled")) {
+              setCookie("APICalled", 1, 30);
+            } else {
+              updateCookieData();
+            }
+            saveSentMessageRecord(
+              number,
+              "Counceling Center Address Rajkot",
+              new Date().toISOString()
+            );
+            var messageCount = getCookie("APICalled");
+            $("#messageCount").text("Total messages sent: " + messageCount);
+            $("#result").html(
+              `<div class="alert alert-success"><strong>Success!</strong> Message Sent Successfully.</div>`
+            );
+            document.getElementById("apiForm").reset();
+            setFocusToFirstField();
+
+            setTimeout(() => {
+              location.reload();
+            }, 2000);
+          },
+          error: function (xhr, status, error) {
+            $("#result").html(
+              `<div class="alert alert-danger"><strong>Failed!</strong> Some error occured</div>`
+            );
+            // Handle error here
+          },
+        });
+      } else if (certificates.includes(category)) {
+        $.ajax({
+          url: "https://wb-api.chatomate.in/whatsapp-cloud/messages",
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: apiKey,
+          },
+          data: JSON.stringify({
+            to: "91" + number,
+            type: "template",
+            source: "external",
+            template: {
+              name: "certificate_collection",
+              language: {
+                code: "en",
+              },
+              components: [
+                {
+                  type: "body",
+                  parameters: [
+                    {
+                      type: "text",
+                      text: category,
+                    },
+                  ],
+                },
+              ],
             },
           }),
           success: function (response) {

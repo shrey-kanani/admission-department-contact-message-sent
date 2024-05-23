@@ -76,10 +76,36 @@
   ],
   "PhD": [{ "id": 26, "name": "Dr. Dhaval Vyas ", "number": "9638595263" }],
   "Admission Transfer": [
-    { "id": 33, "name": "Prof. Hardik Acharya", "number": "9727630090" }
+    { "id": 36, "name": "Prof. Hardik Acharya", "number": "9727630090" }
   ],
   "Hostel": [{ "id": 34, "name": "Mr. Darshan Sheth", "number": "7096979911" }],
   "Transport": [
     { "id": 35, "name": "Mr. Chirag Bumtariya", "number": "9512770018" }
-  ]
+  ],
+  "Attempt": [{ "id": 37, "certificateName": "Attempt Certificate" }],
+  "Migration": [{ "id": 38, "certificateName": "Migration Certificate" }],
+  "NOC": [{ "id": 39, "certificateName": "No Objection Certificate" }],
+  "LOR": [
+    { "id": 40, "certificateName": "Letter of Recommendation Certificate" }
+  ],
+  "Transcript": [{ "id": 41, "certificateName": "Transcript Certificate" }],
+  "Percentage Conversion": [
+    { "id": 42, "certificateName": "Percentage Conversion Certificate" }
+  ],
+  "English Proficiency": [
+    { "id": 43, "certificateName": "English Proficiency Certificate" }
+  ],
+  "Letter of University Recognition": [
+    {
+      "id": 44,
+      "certificateName": "Letter of University Recognition Certificate"
+    }
+  ],
+  "Duplicate Degree": [
+    { "id": 45, "certificateName": "Duplicate Degree Certificate" }
+  ],
+  "Duplicate Gradesheet": [
+    { "id": 46, "certificateName": "Duplicate Gradesheet Certificate" }
+  ],
+  "No Backlog": [{ "id": 47, "certificateName": "No Backlog Certificate" }]
 }
