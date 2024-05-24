@@ -195,34 +195,6 @@ $(document).ready(function () {
           text: "Attempt Certificate",
         },
         {
-          id: "Migration Certificate",
-          text: "Migration Certificate",
-        },
-        {
-          id: "No Objection Certificate",
-          text: "No Objection Certificate",
-        },
-        {
-          id: "Letter of Recommendation Certificate",
-          text: "Letter of Recommendation Certificate",
-        },
-        {
-          id: "Transcript Certificate",
-          text: "Transcript Certificate",
-        },
-        {
-          id: "Percentage Conversion Certificate",
-          text: "Percentage Conversion Certificate",
-        },
-        {
-          id: "English Proficiency Certificate",
-          text: "English Proficiency Certificate",
-        },
-        {
-          id: "Letter of University Recognition Certificate",
-          text: "Letter of University Recognition Certificate",
-        },
-        {
           id: "Duplicate Degree Certificate",
           text: "Duplicate Degree Certificate",
         },
@@ -231,8 +203,36 @@ $(document).ready(function () {
           text: "Duplicate Gradesheet Certificate",
         },
         {
+          id: "English Proficiency Certificate",
+          text: "English Proficiency Certificate",
+        },
+        {
+          id: "Letter of Recommendation Certificate",
+          text: "Letter of Recommendation Certificate",
+        },
+        {
+          id: "Letter of University Recognition Certificate",
+          text: "Letter of University Recognition Certificate",
+        },
+        {
+          id: "Migration Certificate",
+          text: "Migration Certificate",
+        },
+        {
           id: "No Backlog Certificate",
           text: "No Backlog Certificate",
+        },
+        {
+          id: "No Objection Certificate",
+          text: "No Objection Certificate",
+        },
+        {
+          id: "Percentage Conversion Certificate",
+          text: "Percentage Conversion Certificate",
+        },
+        {
+          id: "Transcript Certificate",
+          text: "Transcript Certificate",
         },
       ],
     },
