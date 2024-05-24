@@ -195,6 +195,10 @@ $(document).ready(function () {
           text: "Attempt Certificate",
         },
         {
+          id: "Character Certificate",
+          text: "Character Certificate",
+        },
+        {
           id: "Duplicate Degree Certificate",
           text: "Duplicate Degree Certificate",
         },

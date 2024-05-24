@@ -83,6 +83,7 @@
     { "id": 35, "name": "Mr. Chirag Bumtariya", "number": "9512770018" }
   ],
   "Attempt": [{ "id": 37, "certificateName": "Attempt Certificate" }],
+  "Character": [{ "id": 48, "certificateName": "Character Certificate" }],
   "Migration": [{ "id": 38, "certificateName": "Migration Certificate" }],
   "NOC": [{ "id": 39, "certificateName": "No Objection Certificate" }],
   "LOR": [
