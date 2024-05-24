@@ -470,11 +470,7 @@ $(document).ready(function () {
             } else {
               updateCookieData();
             }
-            saveSentMessageRecord(
-              number,
-              "Counceling Center Address Rajkot",
-              new Date().toISOString()
-            );
+            saveSentMessageRecord(number, category, new Date().toISOString());
             var messageCount = getCookie("APICalled");
             $("#messageCount").text("Total messages sent: " + messageCount);
             $("#result").html(
