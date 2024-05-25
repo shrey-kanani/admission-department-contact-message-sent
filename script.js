@@ -308,6 +308,7 @@ $(document).ready(function () {
     var selectedCategories = [];
     let certificates = [
       "Attempt Certificate",
+      "Character Certificate",
       "Migration Certificate",
       "No Objection Certificate",
       "Letter of Recommendation Certificate",
