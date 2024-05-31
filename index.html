@@ -65,9 +65,7 @@
               var data = JSON.parse(xhr.responseText);
               var validUser = false;
               let username;
-              console.dir(formData)
               data.users.forEach(function (user) {
-                console.dir(user);
                 if (user.email === formData.email && user.password === formData.password) {
                   validUser = true;
                   username = user.name;
@@ -79,7 +77,10 @@
                 setCookie("user", username, 1);
                 window.location.href = 'home.html';
               } else {
-                document.getElementById('loginForm').insertAdjacentHTML('afterbegin', '<div class="alert alert-danger" role="alert">Invalid email or password!</div>');
+                if (!document.getElementById("loginError")) {
+                  document.getElementById('loginForm').insertAdjacentHTML('afterbegin', '<div id="loginError" class="alert alert-danger" role="alert">Invalid email or password!</div>');
+                }
+
               }
             } else {
               document.getElementById('loginForm').insertAdjacentHTML('afterbegin', '<div class="alert alert-danger" role="alert">Unable to check login credentials!</div>');
