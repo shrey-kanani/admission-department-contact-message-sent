@@ -1,5 +1,8 @@
 {
   "Admission Cell": [{ "id": 1, "name": "Mihir Tank", "number": "7096979962" }],
+  "Group B Councelling": [
+    { "id": 49, "name": "Prof. Punit Vadher ", "number": "7096979922" }
+  ],
   "Diploma Computer": [
     { "id": 2, "name": "Prof. Akash Siddhpura", "number": "9429794513" },
     { "id": 3, "name": "Prof. Vishal Makwana", "number": "8671010867" }

@@ -181,6 +181,10 @@ $(document).ready(function () {
           id: "University Campus Address",
           text: "University Campus Address",
         },
+        {
+          id: "Group B Councelling",
+          text: "Group B Councelling",
+        },
       ],
     },
   ];
