@@ -337,7 +337,10 @@ $(document).ready(function () {
     tree3.selectedNodes.forEach((el) => {
       if (isNaN(el.id)) selectedCategories.push(el);
     });
-    if (getCookie("user") == "Hardik Lakhani") {
+    if (
+      getCookie("user") == "Hardik Lakhani" ||
+      getCookie("user") == "Rushi Rajyaguru"
+    ) {
       tree4.selectedNodes.forEach((el) => {
         if (isNaN(el.id)) selectedCategories.push(el);
       });
