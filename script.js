@@ -286,7 +286,10 @@ $(document).ready(function () {
     },
   });
   let tree4;
-  if (getCookie("user") == "Hardik Lakhani") {
+  if (
+    getCookie("user") == "Hardik Lakhani" ||
+    getCookie("user") == "Rushi Rajyaguru"
+  ) {
     tree4 = new Tree(".container4", {
       data: data4,
       closeDepth: 3,
