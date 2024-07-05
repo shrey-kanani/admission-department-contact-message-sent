@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Attended Calls</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    /* Add custom styles here if needed */
+    #exportBtn {
+      margin-left: 0.5rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h2 class="mt-4 mb-4">Calls List</h2>
+    <div class="mb-3 d-flex justify-content-end">
+      <a href="home.html" class="btn btn-secondary">Home</a>
+      <button class="btn btn-success" id="exportBtn">Export to Excel</button>
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Sr.</th>
+          <th>Recipient Number</th>
+          <th>Remarks</th>
+          <th>Timestamp</th>
+        </tr>
+      </thead>
+      <tbody id="attendedCallsTableBody">
+        <!-- Records will be displayed here -->
+      </tbody>
+    </table>
+    <nav>
+      <ul class="pagination justify-content-center" id="pagination">
+      </ul>
+    </nav>
+  </div>
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- Bootstrap JS -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+  <!-- XLSX Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+
+  <!-- Your custom script -->
+  <script>
+    // Function to display paginated records from localStorage
+    function displayPaginatedSentMessages(pageNumber, pageSize) {
+      var attendedCalls = JSON.parse(localStorage.getItem("attendedCalls")) || [];
+      var startIndex = (pageNumber - 1) * pageSize;
+      var endIndex = startIndex + pageSize;
+      var paginatedMessages = attendedCalls.reverse().slice(startIndex, endIndex);
+
+      var tableBody = document.getElementById("attendedCallsTableBody");
+      tableBody.innerHTML = ""; // Clear existing rows
+
+      if (paginatedMessages.length === 0) {
+        tableBody.innerHTML = "<tr><td colspan='4' class='text-center'>No records found.</td></tr>";
+        document.getElementById('exportBtn').disabled = true;
+      } else {
+        var i = startIndex + 1; // Reset i to startIndex + 1 for the current page
+        paginatedMessages.forEach(function (message) {
+          var row = tableBody.insertRow();
+          var srCell = row.insertCell(0);
+          var recipientCell = row.insertCell(1);
+          var categoryCell = row.insertCell(2);
+          var timestampCell = row.insertCell(3);
+
+          srCell.textContent = i++;
+          recipientCell.textContent = message.number;
+          categoryCell.textContent = message.remarks;
+          timestampCell.textContent = new Date(message.timestamp).toLocaleString(); // Convert timestamp to local date and time format
+        });
+      }
+    }
+
+    // Function to generate pagination links
+    function generatePaginationLinks(totalPages) {
+      var pagination = document.getElementById("pagination");
+      pagination.innerHTML = "";
+
+      for (var i = 1; i <= totalPages; i++) {
+        var li = document.createElement("li");
+        li.classList.add("page-item");
+        var link = document.createElement("a");
+        link.classList.add("page-link");
+        link.textContent = i;
+        link.href = "#";
+        link.addEventListener("click", function (event) {
+          event.preventDefault();
+          var pageNumber = parseInt(event.target.textContent);
+          displayPaginatedSentMessages(pageNumber, 20); // Assuming 20 records per page
+        });
+        li.appendChild(link);
+        pagination.appendChild(li);
+      }
+    }
+
+    // Call the function to initially display the first page
+    displayPaginatedSentMessages(1, 20); // Assuming 20 records per page
+
+    // Sample code to calculate total pages
+    var attendedCalls = JSON.parse(localStorage.getItem("attendedCalls")) || [];
+    var totalPages = Math.ceil(attendedCalls.length / 20); // Assuming 20 records per page
+
+    // Update pagination links based on total pages
+    generatePaginationLinks(totalPages);
+
+    // Export to Excel
+    document.getElementById("exportBtn").addEventListener("click", function () {
+      var attendedCalls = JSON.parse(localStorage.getItem("attendedCalls")) || [];
+      var data = attendedCalls.map(function (message) {
+        return [message.number, message.category, new Date(message.timestamp).toLocaleString()];
+      });
+
+      var ws = XLSX.utils.aoa_to_sheet([["Recipient Number", "Category", "Timestamp"], ...data]);
+      var wb = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, ws, "Sent Messages");
+      XLSX.writeFile(wb, "sent_messages.xlsx");
+    });
+
+    $(document).ready(function () {
+      // Check if the 'user' cookie is present
+      var userCookie = getCookie('user');
+      console.log(userCookie);
+      if (!userCookie) {
+        // If 'user' cookie is not present, redirect to index.html
+        window.location.href = 'index.html';
+      }
+
+      var messageCount = getCookie('APICalled');
+      $('#messageCount').text("Total messages sent: " + messageCount);
+
+      $('#logoutBtn').click(function () {
+        // Redirect to logout page or perform logout action
+        // For example, redirect to logout.html
+        delete_cookie("user");
+        window.location.href = 'index.html';
+      });
+    });
+
+    function getCookie(name) {
+      let cookies = document.cookie.split(';');
+      for (let i = 0; i < cookies.length; i++) {
+        let cookie = cookies[i].trim();
+        if (cookie.startsWith(name + '=')) {
+          return cookie.substring(name.length + 1);
+        }
+      }
+      return null;
+    }
+
+    function delete_cookie(name) {
+      document.cookie = name + '=; Expires=Thu, 01 Jan 1970 00:00:01 GMT; Path=/;';
+    }
+  </script>
+</body>
+
+</html>

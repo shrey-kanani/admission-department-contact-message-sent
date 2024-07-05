@@ -259,6 +259,7 @@ $(document).ready(function () {
       // console.log(this.values);
     },
   });
+
   let tree2 = new Tree(".container2", {
     data: data2,
     closeDepth: 3,
@@ -272,6 +273,7 @@ $(document).ready(function () {
       // console.log(this.values);
     },
   });
+
   let tree3 = new Tree(".container3", {
     data: data3,
     closeDepth: 3,
@@ -285,7 +287,9 @@ $(document).ready(function () {
       // console.log(this.values);
     },
   });
+
   let tree4;
+
   if (
     getCookie("user") == "Hardik Lakhani" ||
     getCookie("user") == "Rushi Rajyaguru"
@@ -310,6 +314,7 @@ $(document).ready(function () {
     var apiKey =
       "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZU51bWJlciI6Iis5MTcwOTY5Nzk5MDAiLCJwaG9uZU51bWJlcklkIjoiMjMxMTgxOTYzNDE0MjQ2IiwiaWF0IjoxNzA4MDYwMDg3fQ.vkXWdDOEW1mCRPdiaNdNshOFkIn0tPM-E_SmuDnMtiw";
     var number = $("#number").val();
+    var remarks = $("#remarks").val();
 
     // Array to store selected categories
     var selectedCategories = [];
@@ -347,6 +352,27 @@ $(document).ready(function () {
     }
 
     console.log(selectedCategories);
+
+    if (selectedCategories.length == 0) {
+      // Retrieve existing records from localStorage
+      var attendedCalls =
+        JSON.parse(localStorage.getItem("attendedCalls")) || [];
+
+      // Add new record
+      attendedCalls.push({
+        number: number,
+        remarks: remarks,
+        timestamp: new Date().toISOString(),
+      });
+
+      // Save updated records to localStorage
+      localStorage.setItem("attendedCalls", JSON.stringify(attendedCalls));
+      $("#result").html(
+        `<div class="alert alert-success"><strong>Success!</strong> Call log added successfully.</div>`
+      );
+      document.getElementById("apiForm").reset();
+      setFocusToFirstField();
+    }
 
     $(selectedCategories).each(function (i, category) {
       category = category.text;

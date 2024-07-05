@@ -31,7 +31,9 @@
         <h2>Whatsapp Send Contact Details</h2>
         <span id="messageCount"></span> <strong>&</strong>
         <span id="todaysMessageCount">Today's messages sent: 0</span>
-        <div><a href="/sentMessagesList.html">See List</a></div>
+        <div><a href="/attendedCallsList.html" style="margin-right: 20px;">Call List</a><a
+            href="/sentMessagesList.html">Messages List</a></div>
+
       </div>
       <div class="col-3 text-right">
         <button id="logoutBtn" class="btn btn-danger">Logout</button>
@@ -44,8 +46,11 @@
         <div class="col-md-3">
           <label for="number">Enter Mobile Number:</label>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-4">
           <input type="text" class="form-control" id="number" pattern="[0-9]{10}" placeholder="ex. 1234567890" required>
+        </div>
+        <div class="col-md-4">
+          <input type="text" class="form-control" id="remarks" placeholder="Remarks" required>
         </div>
         <div class="col-md-1">
           <button type="submit" class="btn btn-primary">Submit</button>
