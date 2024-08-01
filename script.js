@@ -309,6 +309,10 @@ $(document).ready(function () {
     });
   }
 
+  if (getCookie("user") == "Shrey Kanani") {
+    document.getElementById("customMessage").style.display = "inline";
+  }
+
   $("#apiForm").submit(function (event) {
     event.preventDefault();
     var apiKey =
@@ -317,7 +321,7 @@ $(document).ready(function () {
     var remarks = $("#remarks").val();
     var customMessage = $("#customMessage").val();
 
-    if (customMessage !== null) {
+    if (customMessage !== null && getCookie("user") === "Shrey Kanani") {
       $.ajax({
         url: "https://wb-api.chatomate.in/whatsapp-cloud/messages", // Replace apiEndpoint with your actual API endpoint
         method: "POST", // Adjust the method as needed (POST, GET, etc.)
@@ -412,27 +416,27 @@ $(document).ready(function () {
         });
       }
 
-      console.log(selectedCategories);
-
       if (selectedCategories.length == 0) {
         // Retrieve existing records from localStorage
-        var attendedCalls =
-          JSON.parse(localStorage.getItem("attendedCalls")) || [];
+        if (remarks != "") {
+          var attendedCalls =
+            JSON.parse(localStorage.getItem("attendedCalls")) || [];
 
-        // Add new record
-        attendedCalls.push({
-          number: number,
-          remarks: remarks,
-          timestamp: new Date().toISOString(),
-        });
+          // Add new record
+          attendedCalls.push({
+            number: number,
+            remarks: remarks,
+            timestamp: new Date().toISOString(),
+          });
 
-        // Save updated records to localStorage
-        localStorage.setItem("attendedCalls", JSON.stringify(attendedCalls));
-        $("#result").html(
-          `<div class="alert alert-success"><strong>Success!</strong> Call log added successfully.</div>`
-        );
-        document.getElementById("apiForm").reset();
-        setFocusToFirstField();
+          // Save updated records to localStorage
+          localStorage.setItem("attendedCalls", JSON.stringify(attendedCalls));
+          $("#result").html(
+            `<div class="alert alert-success"><strong>Success!</strong> Call log added successfully.</div>`
+          );
+          document.getElementById("apiForm").reset();
+          setFocusToFirstField();
+        }
       }
 
       $(selectedCategories).each(function (i, category) {
