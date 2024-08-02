@@ -15,6 +15,10 @@ $(document).ready(function () {
     "Today's messages sent: " + todaysMessages.length
   );
 
+  if (getCookie("user") == "Shrey Kanani") {
+    document.getElementById("bulkMessageLink").style.display = "inline";
+  }
+
   // prettier-ignore
   let data = [
     {
