@@ -111,5 +111,8 @@
   "Duplicate Gradesheet": [
     { "id": 46, "certificateName": "Duplicate Gradesheet Certificate" }
   ],
-  "No Backlog": [{ "id": 47, "certificateName": "No Backlog Certificate" }]
+  "No Backlog": [{ "id": 47, "certificateName": "No Backlog Certificate" }],
+  "Collect Certificate": [
+    { "id": 48, "certificateName": "Collect Certificate" }
+  ]
 }
