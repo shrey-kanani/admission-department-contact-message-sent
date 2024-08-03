@@ -297,7 +297,6 @@ $(document).ready(function () {
   });
 
   let tree4;
-  let tree5;
 
   if (
     getCookie("user") == "Hardik Lakhani" ||
@@ -535,62 +534,6 @@ $(document).ready(function () {
             setTimeout(() => {
               location.reload();
             }, 32000);
-          },
-          error: function (xhr, status, error) {
-            $("#result").html(
-              `<div class="alert alert-danger"><strong>Failed!</strong> Some error occured</div>`
-            );
-            // Handle error here
-          },
-        });
-      } else if (category === "Collect Certificate") {
-        $.ajax({
-          url: "https://wb-api.chatomate.in/whatsapp-cloud/messages",
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: apiKey,
-          },
-          data: JSON.stringify({
-            to: "91" + number,
-            type: "template",
-            source: "external",
-            template: {
-              name: "certificate_collection",
-              language: {
-                code: "en",
-              },
-              components: [
-                {
-                  type: "body",
-                  parameters: [
-                    {
-                      type: "text",
-                      text: category,
-                    },
-                  ],
-                },
-              ],
-            },
-          }),
-          success: function (response) {
-            if (!getCookie("APICalled")) {
-              setCookie("APICalled", 1, 30);
-            } else {
-              updateCookieData();
-            }
-            saveSentMessageRecord(number, category, new Date().toISOString());
-            var messageCount = getCookie("APICalled");
-            $("#messageCount").text("Total messages sent: " + messageCount);
-            $("#result").html(
-              `<div class="alert alert-success"><strong>Success!</strong> Message Sent Successfully.</div>`
-            );
-            document.getElementById("apiForm").reset();
-            setFocusToFirstField();
-
-            setTimeout(() => {
-              location.reload();
-            }, 2000);
           },
           error: function (xhr, status, error) {
             $("#result").html(
