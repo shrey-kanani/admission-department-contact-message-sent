@@ -509,10 +509,10 @@ $(document).ready(function () {
                 {
                   type: "body",
                   parameters: [
-                    {
-                      type: "text",
-                      text: category,
-                    },
+                    // {
+                    //   type: "text",
+                    //   text: category,
+                    // },
                   ],
                 },
               ],
