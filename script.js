@@ -389,8 +389,8 @@ $(document).ready(function () {
       category = category.text;
       if (category === "Rajkot Office Address") {
         $.ajax({
-          url: "https://wb-api.chatomate.in/whatsapp-cloud/messages", // Replace apiEndpoint with your actual API endpoint
-          method: "POST", // Adjust the method as needed (POST, GET, etc.)
+          url: "https://wb-api.chatomate.in/whatsapp-cloud/messages",
+          method: "POST",
           headers: {
             "Content-Type": "application/json",
             Authorization: apiKey,
@@ -400,7 +400,7 @@ $(document).ready(function () {
             type: "template",
             source: "external",
             template: {
-              name: "counseling_center_rajkot_address_3",
+              name: "admission__counselling_center_address",
               language: {
                 code: "en",
               },
@@ -408,6 +408,8 @@ $(document).ready(function () {
             },
           }),
           success: function (response) {
+            console.log(response);
+
             if (!getCookie("APICalled")) {
               setCookie("APICalled", 1, 30);
             } else {
@@ -427,7 +429,7 @@ $(document).ready(function () {
             setFocusToFirstField();
 
             setTimeout(() => {
-              location.reload();
+              // location.reload();
             }, 2000);
           },
           error: function (xhr, status, error) {
@@ -499,7 +501,7 @@ $(document).ready(function () {
             type: "template",
             source: "external",
             template: {
-              name: "certificate_collection",
+              name: "admin__certificate_collection",
               language: {
                 code: "en",
               },
@@ -563,7 +565,7 @@ $(document).ready(function () {
                 type: "template",
                 source: "external",
                 template: {
-                  name: "admission_officer_contact_details_single_send",
+                  name: "admission__officer_contact_details_single_send",
                   language: {
                     code: "en",
                   },
@@ -633,7 +635,7 @@ $(document).ready(function () {
                 type: "template",
                 source: "external",
                 template: {
-                  name: "admission_officer_contact_details_send_multiple_2",
+                  name: "admission__officer_contact_details_multiple_send",
                   language: {
                     code: "en",
                   },
