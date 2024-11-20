@@ -506,15 +506,15 @@ $(document).ready(function () {
                 code: "en",
               },
               components: [
-                {
-                  type: "body",
-                  parameters: [
-                    // {
-                    //   type: "text",
-                    //   text: category,
-                    // },
-                  ],
-                },
+                // {
+                //   type: "body",
+                //   parameters: [
+                //     {
+                //       type: "text",
+                //       text: category,
+                //     },
+                //   ],
+                // },
               ],
             },
           }),
