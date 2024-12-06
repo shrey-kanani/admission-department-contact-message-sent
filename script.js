@@ -779,3 +779,45 @@ function saveSentMessageRecord(number, category, timestamp) {
     "Today's messages sent: " + todaysMessages.length
   );
 }
+
+function routePdf() {
+  const arr = ["918141238368"];
+  arr.forEach((element) => {
+    $.ajax({
+      url: "https://wb-api.chatomate.in/whatsapp-cloud/messages", // Replace apiEndpoint with your actual API endpoint
+      method: "POST", // Adjust the method as needed (POST, GET, etc.)
+      headers: {
+        "Content-Type": "application/json",
+        Authorization:
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZU51bWJlciI6Iis5MTcwOTY5Nzk5MDAiLCJwaG9uZU51bWJlcklkIjoiMjMxMTgxOTYzNDE0MjQ2IiwiaWF0IjoxNzA4MDYwMDg3fQ.vkXWdDOEW1mCRPdiaNdNshOFkIn0tPM-E_SmuDnMtiw",
+      },
+      data: JSON.stringify({
+        to: element,
+        type: "template",
+        source: "external",
+        template: {
+          name: "transport_route_pdf",
+          language: {
+            code: "en",
+          },
+          components: [
+            {
+              type: "body",
+              parameters: [
+                {
+                  type: "document",
+                  document: {
+                    link: "https://du-website.s3.ap-south-1.amazonaws.com/U01/Page/Ma-Yoga.pdf",
+                    filename: "Route Pdf",
+                  },
+                },
+              ],
+            },
+          ],
+        },
+      }),
+      success: function (response) {},
+      error: function (xhr, status, error) {},
+    });
+  });
+}
