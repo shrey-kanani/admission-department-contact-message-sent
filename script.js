@@ -15,7 +15,10 @@ $(document).ready(function () {
     "Today's messages sent: " + todaysMessages.length
   );
 
-  if (getCookie("user") == "Shrey Kanani") {
+  if (
+    getCookie("user") == "Shrey Kanani" ||
+    getCookie("user") == "Hitesh Dhamsaniya"
+  ) {
     document.getElementById("bulkMessageLink").style.display = "inline";
   }
 
