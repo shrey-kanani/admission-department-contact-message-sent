@@ -1,5 +1,8 @@
 $(document).ready(function () {
-  if (getCookie("user") == "Shrey Kanani") {
+  if (
+    getCookie("user") == "Shrey Kanani" ||
+    getCookie("user") == "Hitesh Dhamsaniya"
+  ) {
     $("#apiForm").submit(function (event) {
       event.preventDefault();
       var apiKey =
