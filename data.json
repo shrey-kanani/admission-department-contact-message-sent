@@ -114,5 +114,8 @@
   "No Backlog": [{ "id": 47, "certificateName": "No Backlog Certificate" }],
   "Collect Certificate": [
     { "id": 48, "certificateName": "Collect Certificate" }
+  ],
+  "Enrolment Cancel Letter": [
+    { "id": 49, "certificateName": "Enrolment Cancel Letter" }
   ]
 }
