@@ -26,7 +26,7 @@ $(document).ready(function () {
             type: "template",
             source: "external",
             template: {
-              name: "testing",
+              name: "admin_general_meesage_template",
               language: {
                 code: "en",
               },
