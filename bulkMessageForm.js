@@ -45,21 +45,20 @@ $(document).ready(function () {
 
         console.log(file.type);
 
-        // STEP - 2.1 UPLOAD MEDIA
-        if (file.type == "application/pdf") {
-          $.ajax({
-            url: "https://wb-api.chatomate.in/whatsapp-cloud/media",
-            method: "POST",
-            headers: {
-              Authorization: apiKey, // Use your actual API key
-            },
-            data: formData,
-            processData: false, // Important: Prevent jQuery from processing data
-            contentType: false, // Important: Prevent jQuery from setting content type
-            success: function (response) {
-              console.log(String(response.id));
-              console.log(customMessage);
+        $.ajax({
+          url: "https://wb-api.chatomate.in/whatsapp-cloud/media",
+          method: "POST",
+          headers: {
+            Authorization: apiKey, // Use your actual API key
+          },
+          data: formData,
+          processData: false, // Important: Prevent jQuery from processing data
+          contentType: false, // Important: Prevent jQuery from setting content type
+          success: function (response) {
+            console.log(String(response.id));
+            console.log(customMessage);
 
+            if (file.type == "application/pdf") {
               // STEP - 2.2 SEND MESSAGE WITH MEDIA ID
               numberArray.forEach((number) => {
                 const trimmedNumber = number.trim();
@@ -119,25 +118,7 @@ $(document).ready(function () {
                   },
                 });
               });
-            },
-            error: function (xhr, status, error) {
-              console.error("Error: ", error);
-            },
-          });
-        } else {
-          $.ajax({
-            url: "https://wb-api.chatomate.in/whatsapp-cloud/media",
-            method: "POST",
-            headers: {
-              Authorization: apiKey, // Use your actual API key
-            },
-            data: formData,
-            processData: false, // Important: Prevent jQuery from processing data
-            contentType: false, // Important: Prevent jQuery from setting content type
-            success: function (response) {
-              console.log(String(response.id));
-              console.log(customMessage);
-
+            } else {
               // STEP - 2.2 SEND MESSAGE WITH MEDIA ID
               numberArray.forEach((number) => {
                 const trimmedNumber = number.trim();
@@ -196,12 +177,12 @@ $(document).ready(function () {
                   },
                 });
               });
-            },
-            error: function (xhr, status, error) {
-              console.error("Error:", error);
-            },
-          });
-        }
+            }
+          },
+          error: function (xhr, status, error) {
+            console.error("Error: ", error);
+          },
+        });
       } else {
         numberArray.forEach((number) => {
           const trimmedNumber = number.trim();
