@@ -16,7 +16,8 @@
     { "id": 7, "name": "Prof. Paresh Bhuva", "number": "8849592724" }
   ],
   "Diploma Electrical": [
-    { "id": 8, "name": "Prof. Pratik Patel", "number": "9712260060" }
+    { "id": 8, "name": "Prof. Pratik Patel", "number": "9712260060" },
+    { "id": 90, "name": "Prof. Raj Mehta", "number": "9429245356" }
   ],
   "BCA": [
     { "id": 9, "name": "Prof. Kishan Jogi", "number": "9033412096" },
@@ -48,7 +49,7 @@
   ],
   "B.Tech. Computer Science & Engineering": [
     { "id": 21, "name": "Prof. Raj Gondaliya", "number": "9723232741" },
-    { "id": 22, "name": "Prof. Mayur Padia", "number": "7096979952" }
+    { "id": 22, "name": "Prof. Dharmik Vasiyani", "number": "9924664064" }
   ],
   "B.Tech. Civil Engineering": [
     { "id": 23, "name": "Prof. Arjun Chavda ", "number": "8200802523" },
