@@ -169,6 +169,10 @@ $(document).ready(function () {
       text: "Other",
       children: [
         {
+          id: "Placement",
+          text: "Placement",
+        },
+        {
           id: "Admission Transfer",
           text: "Admission Transfer",
         },
@@ -305,10 +309,7 @@ $(document).ready(function () {
 
   let tree4;
 
-  if (
-    getCookie("user") == "Hardik Lakhani" ||
-    getCookie("user") == "Rushi Rajyaguru"
-  ) {
+  if (getCookie("user") == "Hardik Lakhani") {
     tree4 = new Tree(".container4", {
       data: data4,
       closeDepth: 3,
@@ -475,6 +476,56 @@ $(document).ready(function () {
             saveSentMessageRecord(
               number,
               "Counceling Center Address Rajkot",
+              new Date().toISOString()
+            );
+            var messageCount = getCookie("APICalled");
+            $("#messageCount").text("Total messages sent: " + messageCount);
+            $("#result").html(
+              `<div class="alert alert-success"><strong>Success!</strong> Message Sent Successfully.</div>`
+            );
+            document.getElementById("apiForm").reset();
+            setFocusToFirstField();
+
+            setTimeout(() => {
+              location.reload();
+            }, 2000);
+          },
+          error: function (xhr, status, error) {
+            $("#result").html(
+              `<div class="alert alert-danger"><strong>Failed!</strong> Some error occured</div>`
+            );
+            // Handle error here
+          },
+        });
+      } else if (category === "Placement") {
+        $.ajax({
+          url: "https://wb-api.chatomate.in/whatsapp-cloud/messages",
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: apiKey,
+          },
+          data: JSON.stringify({
+            to: "91" + number,
+            type: "template",
+            source: "external",
+            template: {
+              name: "placement_contact_details",
+              language: {
+                code: "en",
+              },
+              components: [],
+            },
+          }),
+          success: function (response) {
+            if (!getCookie("APICalled")) {
+              setCookie("APICalled", 1, 30);
+            } else {
+              updateCookieData();
+            }
+            saveSentMessageRecord(
+              number,
+              "Placement Contact Details",
               new Date().toISOString()
             );
             var messageCount = getCookie("APICalled");
