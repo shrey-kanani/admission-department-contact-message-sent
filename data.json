@@ -20,16 +20,16 @@
     { "id": 90, "name": "Prof. Raj Mehta", "number": "9429245356" }
   ],
   "BCA": [
-    { "id": 9, "name": "Prof. Kishan Jogi", "number": "9033412096" },
-    { "id": 10, "name": "Prof. Chirag Sakhrani", "number": "8401191184" }
+    { "id": 9, "name": "Prof. Umesh Thoriya", "number": "9714233355" },
+    { "id": 10, "name": "Prof. Hemang Chath", "number": "8200834776" }
   ],
   "B.Sc. (IT)": [
-    { "id": 11, "name": "Prof. Hemang Chath", "number": "8200834776" },
-    { "id": 12, "name": "Prof. Vaseem Ghada", "number": "9879531513" }
+    { "id": 11, "name": "Prof. Umesh Thoriya", "number": "9714233355" },
+    { "id": 12, "name": "Prof. Hemang Chath", "number": "8200834776" }
   ],
   "B.Sc. (Honors) Computer Science": [
-    { "id": 13, "name": "Prof. Vishal Kansagara", "number": "8200601076" },
-    { "id": 14, "name": "Prof.  Krunal Vyas", "number": "9601901005" }
+    { "id": 13, "name": "Prof. Dharmik Vasiyani", "number": "9924664064" },
+    { "id": 14, "name": "Prof.  Raj Gondaliya", "number": "9723232741" }
   ],
   "B. Com. (Honors)": [
     { "id": 15, "name": "Prof. Dhaval Simejiya", "number": "9904325008" }
@@ -63,7 +63,8 @@
     { "id": 28, "name": "Prof. Bhavin Joshi", "number": "9106108903" }
   ],
   "MCA": [
-    { "id": 29, "name": "Prof. Firoz Sherasiya ", "number": "9879879861" }
+    { "id": 29, "name": "Prof. Firoz Sherasiya ", "number": "9879879861" },
+    { "id": 100, "name": "Prof. Deep Padaliya ", "number": "9898188771" }
   ],
   "M. A. Yoga": [
     { "id": 30, "name": "Prof. Gaurang Vyas", "number": "9426385864" }
