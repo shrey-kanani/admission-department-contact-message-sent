@@ -510,7 +510,7 @@ $(document).ready(function () {
             type: "template",
             source: "external",
             template: {
-              name: "placement_contact_details",
+              name: "placement_contact",
               language: {
                 code: "en",
               },
