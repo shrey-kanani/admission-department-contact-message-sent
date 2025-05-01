@@ -1,20 +1,15 @@
 $(document).ready(function () {
   // Retrieve existing records from localStorage
   var sentMessages = JSON.parse(localStorage.getItem("sentMessages")) || [];
-
-  // Get today's date
   var today = new Date().toISOString().slice(0, 10);
-
-  // Filter sent messages for today
   var todaysMessages = sentMessages.filter(function (message) {
     return message.timestamp.slice(0, 10) === today;
   });
-
-  // Display count of today's messages
   $("#todaysMessageCount").text(
     "Today's messages sent: " + todaysMessages.length
   );
 
+  // bulk message permission
   if (
     getCookie("user") == "Shrey Kanani" ||
     getCookie("user") == "Hitesh Dhamsaniya"
@@ -510,7 +505,7 @@ $(document).ready(function () {
             type: "template",
             source: "external",
             template: {
-              name: "placement_contact",
+              name: "placement_contact_details",
               language: {
                 code: "en",
               },
@@ -564,17 +559,7 @@ $(document).ready(function () {
               language: {
                 code: "en",
               },
-              components: [
-                // {
-                //   type: "body",
-                //   parameters: [
-                //     {
-                //       type: "text",
-                //       text: category,
-                //     },
-                //   ],
-                // },
-              ],
+              components: [],
             },
           }),
           success: function (response) {
@@ -664,9 +649,54 @@ $(document).ready(function () {
                 document.getElementById("apiForm").reset();
                 setFocusToFirstField();
 
-                setTimeout(() => {
-                  location.reload();
-                }, 2000);
+                // Make the second AJAX call here
+                $.ajax({
+                  url: "https://wb-api.chatomate.in/whatsapp-cloud/messages",
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                    Authorization: apiKey,
+                  },
+                  data: JSON.stringify({
+                    to: "91" + contactNumber,
+                    type: "template",
+                    source: "external",
+                    template: {
+                      name: "student_admission_inquiry_ackn",
+                      language: {
+                        code: "en",
+                      },
+                      components: [
+                        {
+                          type: "body",
+                          parameters: [
+                            {
+                              type: "text",
+                              text: course,
+                            },
+                            {
+                              type: "text",
+                              text: number,
+                            },
+                          ],
+                        },
+                      ],
+                    },
+                  }),
+                  success: function (response) {
+                    console.log(
+                      "Acknowledgement message sent to contact person."
+                    );
+                    setTimeout(() => {
+                      location.reload();
+                    }, 2000);
+                  },
+                  error: function (xhr, status, error) {
+                    $("#result").html(
+                      `<div class="alert alert-danger"><strong>Failed!</strong> Error sending second message.</div>`
+                    );
+                  },
+                });
               },
               error: function (xhr, status, error) {
                 $("#result").html(
@@ -742,9 +772,100 @@ $(document).ready(function () {
                 document.getElementById("apiForm").reset();
                 setFocusToFirstField();
 
-                setTimeout(() => {
-                  location.reload();
-                }, 2000);
+                // Make the second AJAX call here
+                $.ajax({
+                  url: "https://wb-api.chatomate.in/whatsapp-cloud/messages",
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                    Authorization: apiKey,
+                  },
+                  data: JSON.stringify({
+                    to: "91" + contactNumber,
+                    type: "template",
+                    source: "external",
+                    template: {
+                      name: "student_admission_inquiry_ackn",
+                      language: {
+                        code: "en",
+                      },
+                      components: [
+                        {
+                          type: "body",
+                          parameters: [
+                            {
+                              type: "text",
+                              text: course,
+                            },
+                            {
+                              type: "text",
+                              text: number,
+                            },
+                          ],
+                        },
+                      ],
+                    },
+                  }),
+                  success: function (response) {
+                    console.log(
+                      "Acknowledgement message sent to contact person."
+                    );
+
+                    // Make the second AJAX call here
+                    $.ajax({
+                      url: "https://wb-api.chatomate.in/whatsapp-cloud/messages",
+                      method: "POST",
+                      headers: {
+                        "Content-Type": "application/json",
+                        Authorization: apiKey,
+                      },
+                      data: JSON.stringify({
+                        to: "91" + contactNumber2,
+                        type: "template",
+                        source: "external",
+                        template: {
+                          name: "student_admission_inquiry_ackn",
+                          language: {
+                            code: "en",
+                          },
+                          components: [
+                            {
+                              type: "body",
+                              parameters: [
+                                {
+                                  type: "text",
+                                  text: course,
+                                },
+                                {
+                                  type: "text",
+                                  text: number,
+                                },
+                              ],
+                            },
+                          ],
+                        },
+                      }),
+                      success: function (response) {
+                        console.log(
+                          "Acknowledgement message sent to contact person."
+                        );
+                        setTimeout(() => {
+                          location.reload();
+                        }, 2000);
+                      },
+                      error: function (xhr, status, error) {
+                        $("#result").html(
+                          `<div class="alert alert-danger"><strong>Failed!</strong> Error sending second message.</div>`
+                        );
+                      },
+                    });
+                  },
+                  error: function (xhr, status, error) {
+                    $("#result").html(
+                      `<div class="alert alert-danger"><strong>Failed!</strong> Error sending second message.</div>`
+                    );
+                  },
+                });
               },
               error: function (xhr, status, error) {
                 $("#result").html(
