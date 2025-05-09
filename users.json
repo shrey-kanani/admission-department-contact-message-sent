@@ -35,6 +35,12 @@
       "email": "rushi.rajyaguru@darshan.ac.in",
       "password": "rtr@123",
       "name": "Rushi Rajyaguru"
+    },
+    {
+      "id": 7,
+      "email": "hiren.khakhi@darshan.ac.in",
+      "password": "hk@123",
+      "name": "Hiren Khakhi"
     }
   ]
 }
