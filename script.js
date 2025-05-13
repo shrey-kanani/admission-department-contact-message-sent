@@ -844,11 +844,6 @@ $(document).ready(function () {
                 document.getElementById("apiForm").reset();
                 setFocusToFirstField();
 
-<<<<<<< HEAD
-                //////////////////////////////////////////////////////////////////////////////////////////////////
-=======
->>>>>>> 7584a31d597c57628f4b659b3aba30913a1f51e3
-                // Make the second AJAX call here
                 $.ajax({
                   url: "https://wb-api.chatomate.in/whatsapp-cloud/messages",
                   method: "POST",
