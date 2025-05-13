@@ -1,20 +1,57 @@
 $(document).ready(function () {
   // Retrieve existing records from localStorage
   var sentMessages = JSON.parse(localStorage.getItem("sentMessages")) || [];
-
-  // Get today's date
   var today = new Date().toISOString().slice(0, 10);
-
-  // Filter sent messages for today
   var todaysMessages = sentMessages.filter(function (message) {
     return message.timestamp.slice(0, 10) === today;
   });
-
-  // Display count of today's messages
   $("#todaysMessageCount").text(
     "Today's messages sent: " + todaysMessages.length
   );
 
+  let brochureObj = {
+    "Diploma Computer":
+      "https://du-website.s3.ap-south-1.amazonaws.com/U01/Brochure/Diploma-Computer-Engineering-Brochure---09-04-2025-12-10-36.pdf",
+    "Diploma Civil":
+      "https://du-website.s3.ap-south-1.amazonaws.com/U01/Brochure/Diploma-Civil-Engineering-Brochure---10-04-2025-11-22-35.pdf",
+    "Diploma Mechanical":
+      "https://du-website.s3.ap-south-1.amazonaws.com/U01/Brochure/Diploma-Mechanical-Engineering-Brochure---10-04-2025-11-20-54.pdf",
+    "Diploma Electrical":
+      "https://du-website.s3.ap-south-1.amazonaws.com/U01/Brochure/Diploma-Electrical-Engineering-Brochure---10-04-2025-11-18-19.pdf",
+    BCA: "https://du-website.s3.ap-south-1.amazonaws.com/U01/Brochure/Bachelor-of-Computer-Applications-Brochure---09-04-2025-12-14-45.pdf",
+    "B.Sc. (IT)":
+      "https://du-website.s3.ap-south-1.amazonaws.com/U01/Brochure/BSC-Information-Technology-Brochure---09-04-2025-12-16-14.pdf",
+    "B.Sc. (Honors) Computer Science":
+      "https://du-website.s3.ap-south-1.amazonaws.com/U01/Brochure/BSC-Honors-Computer-Science-Brochure---09-04-2025-12-07-54.pdf",
+    "B. Com. (Honors)":
+      "https://du-website.s3.ap-south-1.amazonaws.com/U01/Brochure/Bachelor-of-Commerce-Honors-Brochure---09-04-2025-12-27-13.pdf",
+    "B. Com.":
+      "https://du-website.s3.ap-south-1.amazonaws.com/U01/Brochure/Institute-of-Management-Brochure---09-04-2025-10-51-32.pdf",
+    "BBA (Honors) Digital Marketing":
+      "https://du-website.s3.ap-south-1.amazonaws.com/U01/Brochure/Bachelors-of-Business-Administration-Honors-Digital-Marketing-Brochure---09-04-2025-12-19-34.pdf",
+    BBA: "https://du-website.s3.ap-south-1.amazonaws.com/U01/Brochure/Institute-of-Management-Brochure---09-04-2025-10-51-32.pdf",
+    "B. Sc. Microbiology":
+      "https://du-website.s3.ap-south-1.amazonaws.com/U01/Brochure/BSC-Microbiology-Brochure---08-05-2025-10-54-30.pdf",
+    "B.Tech. Computer Science & Engineering":
+      "https://du-website.s3.ap-south-1.amazonaws.com/U01/Brochure/BTech-Computer-Science-and-Engineering-Brochure---09-04-2025-11-56-58.pdf",
+    "B.Tech. Civil Engineering":
+      "https://du-website.s3.ap-south-1.amazonaws.com/U01/Brochure/BTech-Civil-Engineering-Brochure---10-04-2025-11-23-26.pdf",
+    "B.Tech. Mechanical Engineering":
+      "https://du-website.s3.ap-south-1.amazonaws.com/U01/Brochure/BTech-Mechanical-Engineering-Brochure---11-04-2025-08-35-44.pdf",
+    MBA: "https://du-website.s3.ap-south-1.amazonaws.com/U01/Brochure/Master-of-Business-Administration-Brochure---09-04-2025-12-18-19.pdf",
+    MCA: "https://du-website.s3.ap-south-1.amazonaws.com/U01/Brochure/Master-of-Computer-Application-Brochure---09-04-2025-12-17-11.pdf",
+    "M. A. Yoga":
+      "https://du-website.s3.ap-south-1.amazonaws.com/U01/Brochure/Ma-Yoga-Brochure---09-04-2025-12-30-19.pdf",
+    "M.Tech. Computer Engineering":
+      "https://du-website.s3.ap-south-1.amazonaws.com/U01/Brochure/Darshan-University-Prospectus-2025---09-04-2025-10-13-57.pdf",
+    "M.Tech. Civil Engineering":
+      "https://du-website.s3.ap-south-1.amazonaws.com/U01/Brochure/Darshan-University-Prospectus-2025---09-04-2025-10-13-57.pdf",
+    "M.Tech. Mechanical Engineering":
+      "https://du-website.s3.ap-south-1.amazonaws.com/U01/Brochure/Darshan-University-Prospectus-2025---09-04-2025-10-13-57.pdf",
+    PhD: "https://du-website.s3.ap-south-1.amazonaws.com/U01/Brochure/Darshan-University-Prospectus-2025---09-04-2025-10-13-57.pdf",
+  };
+
+  // bulk message permission
   if (
     getCookie("user") == "Shrey Kanani" ||
     getCookie("user") == "Hitesh Dhamsaniya"
@@ -169,6 +206,10 @@ $(document).ready(function () {
       text: "Other",
       children: [
         {
+          id: "Placement",
+          text: "Placement",
+        },
+        {
           id: "Admission Transfer",
           text: "Admission Transfer",
         },
@@ -305,10 +346,7 @@ $(document).ready(function () {
 
   let tree4;
 
-  if (
-    getCookie("user") == "Hardik Lakhani" ||
-    getCookie("user") == "Rushi Rajyaguru"
-  ) {
+  if (getCookie("user") == "Hardik Lakhani") {
     tree4 = new Tree(".container4", {
       data: data4,
       closeDepth: 3,
@@ -496,6 +534,56 @@ $(document).ready(function () {
             // Handle error here
           },
         });
+      } else if (category === "Placement") {
+        $.ajax({
+          url: "https://wb-api.chatomate.in/whatsapp-cloud/messages",
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: apiKey,
+          },
+          data: JSON.stringify({
+            to: "91" + number,
+            type: "template",
+            source: "external",
+            template: {
+              name: "placement_contact_details",
+              language: {
+                code: "en",
+              },
+              components: [],
+            },
+          }),
+          success: function (response) {
+            if (!getCookie("APICalled")) {
+              setCookie("APICalled", 1, 30);
+            } else {
+              updateCookieData();
+            }
+            saveSentMessageRecord(
+              number,
+              "Placement Contact Details",
+              new Date().toISOString()
+            );
+            var messageCount = getCookie("APICalled");
+            $("#messageCount").text("Total messages sent: " + messageCount);
+            $("#result").html(
+              `<div class="alert alert-success"><strong>Success!</strong> Message Sent Successfully.</div>`
+            );
+            document.getElementById("apiForm").reset();
+            setFocusToFirstField();
+
+            setTimeout(() => {
+              location.reload();
+            }, 2000);
+          },
+          error: function (xhr, status, error) {
+            $("#result").html(
+              `<div class="alert alert-danger"><strong>Failed!</strong> Some error occured</div>`
+            );
+            // Handle error here
+          },
+        });
       } else if (certificates.includes(category)) {
         $.ajax({
           url: "https://wb-api.chatomate.in/whatsapp-cloud/messages",
@@ -513,17 +601,7 @@ $(document).ready(function () {
               language: {
                 code: "en",
               },
-              components: [
-                // {
-                //   type: "body",
-                //   parameters: [
-                //     {
-                //       type: "text",
-                //       text: category,
-                //     },
-                //   ],
-                // },
-              ],
+              components: [],
             },
           }),
           success: function (response) {
@@ -560,6 +638,8 @@ $(document).ready(function () {
             let contactNumber = items[0].number;
             let contactPerson = items[0].name;
             let course = category;
+
+            console.log(typeof brochureObj[course]);
             // Make API call using fetched data
             $.ajax({
               url: "https://wb-api.chatomate.in/whatsapp-cloud/messages",
@@ -573,11 +653,23 @@ $(document).ready(function () {
                 type: "template",
                 source: "external",
                 template: {
-                  name: "admission__officer_contact_details_single_send",
+                  name: "admission__officer_contact_details_single_send_2",
                   language: {
                     code: "en",
                   },
                   components: [
+                    {
+                      type: "header",
+                      parameters: [
+                        {
+                          type: "document",
+                          document: {
+                            link: String(brochureObj[course]),
+                            filename: `Brochure-${course}`,
+                          },
+                        },
+                      ],
+                    },
                     {
                       type: "body",
                       parameters: [
@@ -613,9 +705,54 @@ $(document).ready(function () {
                 document.getElementById("apiForm").reset();
                 setFocusToFirstField();
 
-                setTimeout(() => {
-                  location.reload();
-                }, 2000);
+                // Make the second AJAX call here
+                $.ajax({
+                  url: "https://wb-api.chatomate.in/whatsapp-cloud/messages",
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                    Authorization: apiKey,
+                  },
+                  data: JSON.stringify({
+                    to: "91" + contactNumber,
+                    type: "template",
+                    source: "external",
+                    template: {
+                      name: "student_admission_inquiry_ackn",
+                      language: {
+                        code: "en",
+                      },
+                      components: [
+                        {
+                          type: "body",
+                          parameters: [
+                            {
+                              type: "text",
+                              text: course,
+                            },
+                            {
+                              type: "text",
+                              text: number,
+                            },
+                          ],
+                        },
+                      ],
+                    },
+                  }),
+                  success: function (response) {
+                    console.log(
+                      "Acknowledgement message sent to contact person."
+                    );
+                    setTimeout(() => {
+                      location.reload();
+                    }, 2000);
+                  },
+                  error: function (xhr, status, error) {
+                    $("#result").html(
+                      `<div class="alert alert-danger"><strong>Failed!</strong> Error sending second message.</div>`
+                    );
+                  },
+                });
               },
               error: function (xhr, status, error) {
                 $("#result").html(
@@ -630,6 +767,7 @@ $(document).ready(function () {
             let contactNumber2 = items[1].number;
             let contactPerson2 = items[1].name;
             let course = category;
+
             // Make API call using fetched data
             $.ajax({
               url: "https://wb-api.chatomate.in/whatsapp-cloud/messages", // Replace apiEndpoint with your actual API endpoint
@@ -643,11 +781,23 @@ $(document).ready(function () {
                 type: "template",
                 source: "external",
                 template: {
-                  name: "admission__officer_contact_details_multiple_send",
+                  name: "admission__officer_contact_details_multiple_send_2",
                   language: {
                     code: "en",
                   },
                   components: [
+                    {
+                      type: "header",
+                      parameters: [
+                        {
+                          type: "document",
+                          document: {
+                            link: brochureObj[course],
+                            filename: `Brochure-${course}`,
+                          },
+                        },
+                      ],
+                    },
                     {
                       type: "body",
                       parameters: [
@@ -691,9 +841,101 @@ $(document).ready(function () {
                 document.getElementById("apiForm").reset();
                 setFocusToFirstField();
 
-                setTimeout(() => {
-                  location.reload();
-                }, 2000);
+                //////////////////////////////////////////////////////////////////////////////////////////////////
+                // Make the second AJAX call here
+                $.ajax({
+                  url: "https://wb-api.chatomate.in/whatsapp-cloud/messages",
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                    Authorization: apiKey,
+                  },
+                  data: JSON.stringify({
+                    to: "91" + contactNumber,
+                    type: "template",
+                    source: "external",
+                    template: {
+                      name: "student_admission_inquiry_ackn",
+                      language: {
+                        code: "en",
+                      },
+                      components: [
+                        {
+                          type: "body",
+                          parameters: [
+                            {
+                              type: "text",
+                              text: course,
+                            },
+                            {
+                              type: "text",
+                              text: number,
+                            },
+                          ],
+                        },
+                      ],
+                    },
+                  }),
+                  success: function (response) {
+                    console.log(
+                      "Acknowledgement message sent to contact person."
+                    );
+
+                    // Make the second AJAX call here
+                    $.ajax({
+                      url: "https://wb-api.chatomate.in/whatsapp-cloud/messages",
+                      method: "POST",
+                      headers: {
+                        "Content-Type": "application/json",
+                        Authorization: apiKey,
+                      },
+                      data: JSON.stringify({
+                        to: "91" + contactNumber2,
+                        type: "template",
+                        source: "external",
+                        template: {
+                          name: "student_admission_inquiry_ackn",
+                          language: {
+                            code: "en",
+                          },
+                          components: [
+                            {
+                              type: "body",
+                              parameters: [
+                                {
+                                  type: "text",
+                                  text: course,
+                                },
+                                {
+                                  type: "text",
+                                  text: number,
+                                },
+                              ],
+                            },
+                          ],
+                        },
+                      }),
+                      success: function (response) {
+                        console.log(
+                          "Acknowledgement message sent to contact person."
+                        );
+                        setTimeout(() => {
+                          location.reload();
+                        }, 2000);
+                      },
+                      error: function (xhr, status, error) {
+                        $("#result").html(
+                          `<div class="alert alert-danger"><strong>Failed!</strong> Error sending second message.</div>`
+                        );
+                      },
+                    });
+                  },
+                  error: function (xhr, status, error) {
+                    $("#result").html(
+                      `<div class="alert alert-danger"><strong>Failed!</strong> Error sending second message.</div>`
+                    );
+                  },
+                });
               },
               error: function (xhr, status, error) {
                 $("#result").html(
