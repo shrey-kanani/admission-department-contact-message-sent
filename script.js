@@ -9,7 +9,6 @@ $(document).ready(function () {
     "Today's messages sent: " + todaysMessages.length
   );
 
-<<<<<<< HEAD
   let brochureObj = {
     "Diploma Computer":
       "https://du-website.s3.ap-south-1.amazonaws.com/U01/Brochure/Diploma-Computer-Engineering-Brochure---09-04-2025-12-10-36.pdf",
@@ -52,8 +51,6 @@ $(document).ready(function () {
     PhD: "https://du-website.s3.ap-south-1.amazonaws.com/U01/Brochure/Darshan-University-Prospectus-2025---09-04-2025-10-13-57.pdf",
   };
 
-=======
->>>>>>> 7584a31d597c57628f4b659b3aba30913a1f51e3
   // bulk message permission
   if (
     getCookie("user") == "Shrey Kanani" ||
