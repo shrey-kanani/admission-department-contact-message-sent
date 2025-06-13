@@ -41,6 +41,12 @@
       "email": "hiren.khakhi@darshan.ac.in",
       "password": "hk@123",
       "name": "Hiren Khakhi"
+    },
+    {
+      "id": 8,
+      "email": "mohit.chauhan@darshan.ac.in",
+      "password": "mohit@123",
+      "name": "Mohit Chauhan"
     }
   ]
 }
