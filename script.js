@@ -11,20 +11,20 @@ $(document).ready(function () {
 
   let brochureObj = {
     "Diploma Computer":
-      "https://du-website.s3.ap-south-1.amazonaws.com/U01/Brochure/Diploma-Computer-Engineering-Brochure---09-04-2025-12-10-36.pdf",
+      "https://du-website.s3.ap-south-1.amazonaws.com/U01/Brochure/Diploma-Computer-Engineering-Brochure---06-03-2026-11-55-34.pdf",
     "Diploma Civil":
-      "https://du-website.s3.ap-south-1.amazonaws.com/U01/Brochure/Diploma-Civil-Engineering-Brochure---10-04-2025-11-22-35.pdf",
+      "https://du-website.s3.ap-south-1.amazonaws.com/U01/Brochure/Diploma-Civil-Engineering-Brochure---12-03-2026-03-36-00.pdf",
     "Diploma Mechanical":
-      "https://du-website.s3.ap-south-1.amazonaws.com/U01/Brochure/Diploma-Mechanical-Engineering-Brochure---10-04-2025-11-20-54.pdf",
+      "https://du-website.s3.ap-south-1.amazonaws.com/U01/Brochure/Diploma-Mechanical-Engineering-Brochure---12-03-2026-03-36-41.pdf",
     "Diploma Electrical":
-      "https://du-website.s3.ap-south-1.amazonaws.com/U01/Brochure/Diploma-Electrical-Engineering-Brochure---10-04-2025-11-18-19.pdf",
-    BCA: "https://du-website.s3.ap-south-1.amazonaws.com/U01/Brochure/Bachelor-of-Computer-Applications-Brochure---09-04-2025-12-14-45.pdf",
+      "https://du-website.s3.ap-south-1.amazonaws.com/U01/Brochure/Diploma-Electrical-Engineering-Brochure---12-03-2026-03-36-26.pdf",
+    BCA: "https://du-website.s3.ap-south-1.amazonaws.com/U01/Brochure/Bachelor-of-Computer-Applications-Brochure---18-02-2026-08-46-42.pdf",
     "B.Sc. (IT)":
-      "https://du-website.s3.ap-south-1.amazonaws.com/U01/Brochure/BSC-Information-Technology-Brochure---09-04-2025-12-16-14.pdf",
+      "https://du-website.s3.ap-south-1.amazonaws.com/U01/Brochure/BSC-Information-Technology-Brochure---23-02-2026-02-22-05.pdf",
     "B.Sc. (Honors) Computer Science":
       "https://du-website.s3.ap-south-1.amazonaws.com/U01/Brochure/BSC-Honors-Computer-Science-Brochure---09-04-2025-12-07-54.pdf",
-    "B. Com. (Honors)":
-      "https://du-website.s3.ap-south-1.amazonaws.com/U01/Brochure/Bachelor-of-Commerce-Honors-Brochure---09-04-2025-12-27-13.pdf",
+    "BBA (Entrepreneurship & Family Business)":
+      "https://du-website.s3.ap-south-1.amazonaws.com/U01/Brochure/Institute-of-Management-Brochure---09-04-2025-10-51-32.pdf",
     "B. Com.":
       "https://du-website.s3.ap-south-1.amazonaws.com/U01/Brochure/Institute-of-Management-Brochure---09-04-2025-10-51-32.pdf",
     "BBA (Honors) Digital Marketing":
@@ -35,11 +35,11 @@ $(document).ready(function () {
     "B.Tech. Computer Science & Engineering":
       "https://du-website.s3.ap-south-1.amazonaws.com/U01/Brochure/BTech-Computer-Science-and-Engineering-Brochure---09-04-2025-11-56-58.pdf",
     "B.Tech. Civil Engineering":
-      "https://du-website.s3.ap-south-1.amazonaws.com/U01/Brochure/BTech-Civil-Engineering-Brochure---10-04-2025-11-23-26.pdf",
+      "https://du-website.s3.ap-south-1.amazonaws.com/U01/Brochure/BTech-Civil-Engineering-Brochure---26-05-2025-02-19-08.pdf",
     "B.Tech. Mechanical Engineering":
       "https://du-website.s3.ap-south-1.amazonaws.com/U01/Brochure/BTech-Mechanical-Engineering-Brochure---11-04-2025-08-35-44.pdf",
     MBA: "https://du-website.s3.ap-south-1.amazonaws.com/U01/Brochure/Master-of-Business-Administration-Brochure---09-04-2025-12-18-19.pdf",
-    MCA: "https://du-website.s3.ap-south-1.amazonaws.com/U01/Brochure/Master-of-Computer-Application-Brochure---09-04-2025-12-17-11.pdf",
+    MCA: "https://du-website.s3.ap-south-1.amazonaws.com/U01/Brochure/Master-of-Computer-Application-Brochure---18-02-2026-08-47-45.pdf",
     "M. A. Yoga":
       "https://du-website.s3.ap-south-1.amazonaws.com/U01/Brochure/Ma-Yoga-Brochure---09-04-2025-12-30-19.pdf",
     "M.Tech. Computer Engineering":
