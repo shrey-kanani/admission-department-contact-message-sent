@@ -151,12 +151,12 @@ $(document).ready(function () {
           text: "BBA (Honors) Digital Marketing",
         },
         {
-          id: "B. Com.",
-          text: "B. Com.",
+          id: "BBA (Entrepreneurship & Family Business)",
+          text: "BBA (Entrepreneurship & Family Business)",
         },
         {
-          id: "B. Com. (Honors)",
-          text: "B. Com. (Honors)",
+          id: "B. Com.",
+          text: "B. Com.",
         },
         {
           id: "MBA",
