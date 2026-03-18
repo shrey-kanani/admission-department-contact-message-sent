@@ -70,6 +70,10 @@ $(document).ready(function () {
           "text": "B.Tech. Computer Science & Engineering"
         },
         {
+          "id": "B.Tech. Artificial Intelligence & Machine Learning",
+          "text": "B.Tech. Artificial Intelligence & Machine Learning"
+        },
+        {
           "id": "B.Tech. Civil Engineering",
           "text": "B.Tech. Civil Engineering"
         },
