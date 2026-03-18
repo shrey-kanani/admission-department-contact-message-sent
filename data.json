@@ -13,23 +13,23 @@
   ],
   "Diploma Mechanical": [
     { "id": 6, "name": "Prof. Dharmesh Tanti", "number": "9924452451" },
-    { "id": 7, "name": "Prof. Paresh Bhuva", "number": "8849592724" }
+    { "id": 7, "name": "Prof. Paresh Bhuva", "number": "9879254198" }
   ],
   "Diploma Electrical": [
     { "id": 8, "name": "Prof. Pratik Patel", "number": "9712260060" },
     { "id": 90, "name": "Prof. Sagar Zakhariya", "number": "9714880200" }
   ],
   "BCA": [
-    { "id": 9, "name": "Prof. Kishan Jogi", "number": "9033412096" },
-    { "id": 10, "name": "Prof. Chirag Sakhrani", "number": "8401191184" }
+    { "id": 9, "name": "Prof. Chirag Sakhrani", "number": "8401191184" },
+    { "id": 10, "name": "Prof. Hemang Chath", "number": "8200834776" }
   ],
   "B.Sc. (IT)": [
     { "id": 11, "name": "Prof. Hemang Chath", "number": "8200834776" },
     { "id": 12, "name": "Prof. Dharmik Aghera", "number": "9898205621" }
   ],
   "B.Sc. (Honors) Computer Science": [
-    { "id": 13, "name": "Prof. Vishal Kansagara", "number": "8200601076" },
-    { "id": 14, "name": "Prof. Krunal Vyas", "number": "9601901005" }
+    { "id": 13, "name": "Prof. Krunal Vyas", "number": "9601901005" },
+    { "id": 14, "name": "Prof. Mayur Padiya", "number": "9925515118" }
   ],
   "B. Com.": [
     { "id": 16, "name": "Prof. Dhaval Simejiya", "number": "9904325008" }
@@ -37,20 +37,27 @@
   "BBA (Honors) Digital Marketing": [
     { "id": 17, "name": "Prof. Smit Vachhani", "number": "7359786060" }
   ],
-  "BBA": [{ "id": 18, "name": "Prof. Dhaval Vyas", "number": "9638595263" }],
+  "BBA (Entrepreneurship & Family Business)": [
+    { "id": 15, "name": "Prof. Daval Radadiya", "number": "9979608411" }
+  ],
+  "BBA": [{ "id": 18, "name": "Prof. Vatsal Raval", "number": "9428285444" }],
   "B. Sc. Microbiology": [
     { "id": 20, "name": "Prof. Priya Vithalani ", "number": "7096979983" }
   ],
   "B.Tech. Computer Science & Engineering": [
-    { "id": 21, "name": "Prof. Raj Gondaliya", "number": "9723232741" },
-    { "id": 22, "name": "Prof. Firoz Sherasiya", "number": "9879879861" }
+    { "id": 21, "name": "Prof. Firoz Sherasiya", "number": "9879879861" },
+    { "id": 22, "name": "Prof. Raj Gondaliya", "number": "9723232741" }
+  ],
+  "B.Tech. Artificial Intelligence & Machine Learning": [
+    { "id": 50, "name": "Prof. Jayesh Vagadiya", "number": "9537133260" },
+    { "id": 51, "name": "Prof. Vaseem Ghada", "number": "9879531513" }
   ],
   "B.Tech. Civil Engineering": [
-    { "id": 23, "name": "Prof. Arjun Chavda ", "number": "8200802523" },
+    { "id": 23, "name": "Prof. Arjun Chavada", "number": "8200802523" },
     { "id": 24, "name": "Prof. Deepraj Patadia", "number": "7990475865" }
   ],
   "B.Tech. Mechanical Engineering": [
-    { "id": 25, "name": "Prof. Ankur Tank ", "number": "9712804466" },
+    { "id": 25, "name": "Prof. Ankur Tank", "number": "9712804466" },
     { "id": 26, "name": "Prof. Sagar Kanjiya", "number": "9408040240" }
   ],
   "MBA": [
@@ -58,7 +65,7 @@
     { "id": 28, "name": "Prof. Amar Gandhi", "number": "9574043369" }
   ],
   "MCA": [
-    { "id": 29, "name": "Prof. Firoz Sherasiya ", "number": "9879879861" }
+    { "id": 29, "name": "Prof. Deep Padaliya", "number": "9898188771" }
   ],
   "M. A. Yoga": [
     { "id": 30, "name": "Prof. Gaurang Vyas", "number": "9426385864" }
@@ -67,7 +74,7 @@
     { "id": 31, "name": "Prof. Maulik Trivedi", "number": "9998265805" }
   ],
   "M.Tech. Civil Engineering": [
-    { "id": 32, "name": "Prof. Dipak Jivani ", "number": "9409530079" }
+    { "id": 32, "name": "Prof. Arjun Chavada", "number": "8200802523" }
   ],
   "M.Tech. Mechanical Engineering": [
     { "id": 33, "name": "Prof. Mukesh Vekariya", "number": "9998986259" }
