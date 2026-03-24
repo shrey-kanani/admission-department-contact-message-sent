@@ -390,6 +390,7 @@ $(document).ready(function () {
       "No Backlog Certificate",
       "Enrolment Cancel Letter",
       "Certificate",
+      "Collect Certificate",
     ];
 
     tree.selectedNodes.forEach((el) => {
