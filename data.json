@@ -1,105 +1,256 @@
 {
-  "Admission Cell": [{ "id": 1, "name": "Mihir Tank", "number": "7096979962" }],
+  "Admission Cell": [
+    {
+      "id": 1,
+      "name": "Mihir Tank",
+      "number": "7096979962"
+    }
+  ],
   "Group B Councelling": [
-    { "id": 49, "name": "Prof. Punit Vadher ", "number": "7096979922" }
+    {
+      "id": 49,
+      "name": "Prof. Punit Vadher ",
+      "number": "7096979922"
+    }
   ],
   "Diploma Computer": [
-    { "id": 2, "name": "Prof. Akash Siddhpura", "number": "9429794513" },
-    { "id": 3, "name": "Prof. Vishal Makwana", "number": "8671010867" }
+    {
+      "id": 2,
+      "name": "Prof. Akash Siddhpura",
+      "number": "9429794513"
+    }
   ],
   "Diploma Civil": [
-    { "id": 4, "name": "Prof. Hitesh Jadav", "number": "8905939980" },
-    { "id": 5, "name": "Prof. Harnish Pandya", "number": "9033151523" }
+    {
+      "id": 4,
+      "name": "Prof. Hitesh Jadav",
+      "number": "8905939980"
+    }
   ],
   "Diploma Mechanical": [
-    { "id": 6, "name": "Prof. Dharmesh Tanti", "number": "9924452451" },
-    { "id": 7, "name": "Prof. Paresh Bhuva", "number": "9879254198" }
+    {
+      "id": 6,
+      "name": "Prof. Dharmesh Tanti",
+      "number": "9924452451"
+    }
   ],
   "Diploma Electrical": [
-    { "id": 8, "name": "Prof. Pratik Patel", "number": "9712260060" },
-    { "id": 90, "name": "Prof. Sagar Zakhariya", "number": "9714880200" }
+    
+    {
+      "id": 90,
+      "name": "Prof. Sagar Zakhariya",
+      "number": "9714880200"
+    }
   ],
   "BCA": [
-    { "id": 9, "name": "Prof. Chirag Sakhrani", "number": "8401191184" },
-    { "id": 10, "name": "Prof. Hemang Chath", "number": "8200834776" }
+    {
+      "id": 9,
+      "name": "Prof. Chirag Sakhrani",
+      "number": "8401191184"
+    }
   ],
   "B.Sc. (IT)": [
-    { "id": 11, "name": "Prof. Hemang Chath", "number": "8200834776" },
-    { "id": 12, "name": "Prof. Dharmik Aghera", "number": "9898205621" }
+    {
+      "id": 11,
+      "name": "Prof. Hemang Chath",
+      "number": "8200834776"
+    }
   ],
   "B.Sc. (Honors) Computer Science": [
-    { "id": 13, "name": "Prof. Krunal Vyas", "number": "9601901005" },
-    { "id": 14, "name": "Prof. Mayur Padiya", "number": "9925515118" }
+    {
+      "id": 13,
+      "name": "Prof. Krunal Vyas",
+      "number": "9601901005"
+    }
   ],
   "B. Com.": [
-    { "id": 16, "name": "Prof. Dhaval Simejiya", "number": "9904325008" }
+    {
+      "id": 16,
+      "name": "Prof. Dhaval Simejiya",
+      "number": "9904325008"
+    }
   ],
   "BBA (Honors) Digital Marketing": [
-    { "id": 17, "name": "Prof. Smit Vachhani", "number": "7359786060" }
+    {
+      "id": 17,
+      "name": "Prof. Smit Vachhani",
+      "number": "7359786060"
+    }
   ],
   "BBA (Entrepreneurship & Family Business)": [
-    { "id": 15, "name": "Prof. Daval Radadiya", "number": "9979608411" }
+    {
+      "id": 15,
+      "name": "Prof. Daval Radadiya",
+      "number": "9979608411"
+    }
   ],
-  "BBA": [{ "id": 18, "name": "Prof. Vatsal Raval", "number": "9428285444" }],
+  "BBA": [
+    {
+      "id": 18,
+      "name": "Prof. Vatsal Raval",
+      "number": "9428285444"
+    }
+  ],
   "B. Sc. Microbiology": [
-    { "id": 20, "name": "Prof. Priya Vithalani ", "number": "7096979983" }
+    {
+      "id": 20,
+      "name": "Prof. Priya Vithalani ",
+      "number": "7096979983"
+    }
   ],
   "B.Tech. Computer Science & Engineering": [
-    { "id": 21, "name": "Prof. Firoz Sherasiya", "number": "9879879861" },
-    { "id": 22, "name": "Prof. Raj Gondaliya", "number": "9723232741" }
+    {
+      "id": 22,
+      "name": "Prof. Raj Gondaliya",
+      "number": "9723232741"
+    }
   ],
   "B.Tech. Artificial Intelligence & Machine Learning": [
-    { "id": 50, "name": "Prof. Jayesh Vagadiya", "number": "9537133260" },
-    { "id": 51, "name": "Prof. Vaseem Ghada", "number": "9879531513" }
+    
+    {
+      "id": 51,
+      "name": "Prof. Vaseem Ghada",
+      "number": "9879531513"
+    }
   ],
   "B.Tech. Civil Engineering": [
-    { "id": 23, "name": "Prof. Arjun Chavada", "number": "8200802523" },
-    { "id": 24, "name": "Prof. Deepraj Patadia", "number": "7990475865" }
+    {
+      "id": 23,
+      "name": "Prof. Arjun Chavada",
+      "number": "8200802523"
+    }
   ],
   "B.Tech. Mechanical Engineering": [
-    { "id": 25, "name": "Prof. Ankur Tank", "number": "9712804466" },
-    { "id": 26, "name": "Prof. Sagar Kanjiya", "number": "9408040240" }
+    {
+      "id": 25,
+      "name": "Prof. Ankur Tank",
+      "number": "9712804466"
+    }
+  ],
+  "B.Tech. Electronics & Communication Engineering": [
+    {
+      "id": 55,
+      "name": "Mr. Pratik Viramgama",
+      "number": "8758937738"
+    }
   ],
   "MBA": [
-    { "id": 27, "name": "Prof. Navjyot Raval", "number": "9909515615" },
-    { "id": 28, "name": "Prof. Amar Gandhi", "number": "9574043369" }
+    {
+      "id": 27,
+      "name": "Prof. Navjyot Raval",
+      "number": "9909515615"
+    }
   ],
   "MCA": [
-    { "id": 29, "name": "Prof. Deep Padaliya", "number": "9898188771" }
+    {
+      "id": 29,
+      "name": "Prof. Deep Padaliya",
+      "number": "9898188771"
+    }
   ],
   "M. A. Yoga": [
-    { "id": 30, "name": "Prof. Gaurang Vyas", "number": "9426385864" }
+    {
+      "id": 30,
+      "name": "Prof. Gaurang Vyas",
+      "number": "9426385864"
+    }
   ],
   "M.Tech. Computer Engineering": [
-    { "id": 31, "name": "Prof. Maulik Trivedi", "number": "9998265805" }
+    {
+      "id": 31,
+      "name": "Prof. Maulik Trivedi",
+      "number": "9998265805"
+    }
   ],
   "M.Tech. Civil Engineering": [
-    { "id": 32, "name": "Prof. Arjun Chavada", "number": "8200802523" }
+    {
+      "id": 32,
+      "name": "Prof. Arjun Chavada",
+      "number": "8200802523"
+    }
   ],
   "M.Tech. Mechanical Engineering": [
-    { "id": 33, "name": "Prof. Mukesh Vekariya", "number": "9998986259" }
+    {
+      "id": 33,
+      "name": "Prof. Mukesh Vekariya",
+      "number": "9998986259"
+    }
   ],
-  "PhD": [{ "id": 26, "name": "Dr. Dhaval Vyas ", "number": "9638595263" }],
+  "PhD": [
+    {
+      "id": 26,
+      "name": "Dr. Dhaval Vyas ",
+      "number": "9638595263"
+    }
+  ],
   "Admission Transfer": [
-    { "id": 36, "name": "Prof. Hardik Acharya", "number": "9727630090" }
+    {
+      "id": 36,
+      "name": "Prof. Hardik Acharya",
+      "number": "9727630090"
+    }
   ],
-  "Hostel": [{ "id": 34, "name": "Mr. Darshan Sheth", "number": "7096979911" }],
+  "Hostel": [
+    {
+      "id": 34,
+      "name": "Mr. Darshan Sheth",
+      "number": "7096979911"
+    }
+  ],
   "Transport": [
-    { "id": 35, "name": "Mr. Chirag Bumtariya", "number": "9512770018" }
+    {
+      "id": 35,
+      "name": "Mr. Chirag Bumtariya",
+      "number": "9512770018"
+    }
   ],
-  "Attempt": [{ "id": 37, "certificateName": "Attempt Certificate" }],
-  "Character": [{ "id": 48, "certificateName": "Character Certificate" }],
-  "Migration": [{ "id": 38, "certificateName": "Migration Certificate" }],
-  "NOC": [{ "id": 39, "certificateName": "No Objection Certificate" }],
+  "Attempt": [
+    {
+      "id": 37,
+      "certificateName": "Attempt Certificate"
+    }
+  ],
+  "Character": [
+    {
+      "id": 48,
+      "certificateName": "Character Certificate"
+    }
+  ],
+  "Migration": [
+    {
+      "id": 38,
+      "certificateName": "Migration Certificate"
+    }
+  ],
+  "NOC": [
+    {
+      "id": 39,
+      "certificateName": "No Objection Certificate"
+    }
+  ],
   "LOR": [
-    { "id": 40, "certificateName": "Letter of Recommendation Certificate" }
+    {
+      "id": 40,
+      "certificateName": "Letter of Recommendation Certificate"
+    }
   ],
-  "Transcript": [{ "id": 41, "certificateName": "Transcript Certificate" }],
+  "Transcript": [
+    {
+      "id": 41,
+      "certificateName": "Transcript Certificate"
+    }
+  ],
   "Percentage Conversion": [
-    { "id": 42, "certificateName": "Percentage Conversion Certificate" }
+    {
+      "id": 42,
+      "certificateName": "Percentage Conversion Certificate"
+    }
   ],
   "English Proficiency": [
-    { "id": 43, "certificateName": "English Proficiency Certificate" }
+    {
+      "id": 43,
+      "certificateName": "English Proficiency Certificate"
+    }
   ],
   "Letter of University Recognition": [
     {
@@ -108,16 +259,33 @@
     }
   ],
   "Duplicate Degree": [
-    { "id": 45, "certificateName": "Duplicate Degree Certificate" }
+    {
+      "id": 45,
+      "certificateName": "Duplicate Degree Certificate"
+    }
   ],
   "Duplicate Gradesheet": [
-    { "id": 46, "certificateName": "Duplicate Gradesheet Certificate" }
+    {
+      "id": 46,
+      "certificateName": "Duplicate Gradesheet Certificate"
+    }
   ],
-  "No Backlog": [{ "id": 47, "certificateName": "No Backlog Certificate" }],
+  "No Backlog": [
+    {
+      "id": 47,
+      "certificateName": "No Backlog Certificate"
+    }
+  ],
   "Collect Certificate": [
-    { "id": 48, "certificateName": "Collect Certificate" }
+    {
+      "id": 48,
+      "certificateName": "Collect Certificate"
+    }
   ],
   "Enrolment Cancel Letter": [
-    { "id": 49, "certificateName": "Enrolment Cancel Letter" }
+    {
+      "id": 49,
+      "certificateName": "Enrolment Cancel Letter"
+    }
   ]
 }
