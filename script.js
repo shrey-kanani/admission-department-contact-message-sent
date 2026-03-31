@@ -82,6 +82,18 @@ $(document).ready(function () {
           "text": "B.Tech. Mechanical Engineering"
         },
         {
+          "id": "B.Tech. Computer (D2D)",
+          "text": "B.Tech. Computer (D2D)"
+        },
+        {
+          "id": "B.Tech. Mechanical (D2D)",
+          "text": "B.Tech. Mechanical (D2D)"
+        },
+        {
+          "id": "B.Tech. Civil (D2D)",
+          "text": "B.Tech. Civil (D2D)"
+        },
+        {
           "id": "M.Tech. Computer Engineering",
           "text": "M.Tech. Computer Engineering"
         },
