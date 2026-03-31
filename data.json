@@ -134,6 +134,28 @@
       "number": "9429050495"
     }
   ],
+  "B.Tech. Computer (D2D)": [
+    
+    {
+      "id": 60,
+      "name": "Prof. Dharmik Vasiyani",
+      "number": "9924664064"
+    }
+  ],
+  "B.Tech. Civil (D2D)": [
+    {
+      "id": 61,
+      "name": "Prof. Deepraj Patadia",
+      "number": "7990475865"
+    }
+  ],
+  "B.Tech. Mechanical (D2D)": [
+    {
+      "id": 62,
+      "name": "Prof. Sagar Kanjiya",
+      "number": "9408040240"
+    }
+  ],
   "MBA": [
     {
       "id": 27,
