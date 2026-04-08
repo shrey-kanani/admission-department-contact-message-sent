@@ -463,7 +463,7 @@ $(document).ready(function () {
             type: "template",
             source: "external",
             template: {
-              name: "admission__counselling_center_address",
+              name: "rajkot_office_address",
               language: {
                 code: "en",
               },
